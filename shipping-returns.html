@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping & Returns - ZAYNAR</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html">
+      <div class="logo">ZAYNAR</div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+      
+      <div class="nav-icons">
+        <a href="#" aria-label="My Account"><i class="fa-regular fa-user"></i></a>
+        <a href="#" id="cart-btn" aria-label="Open Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span id="cart-item-count">0</span>
+        </a>
+        <a href="#" id="hamburger-btn" aria-label="Open Menu"><i class="fa-solid fa-bars-staggered"></i></a>
+      </div>
+    </nav>
+    
+    <div id="mobile-nav" class="mobile-nav-menu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="shop.html" class="mobile-link">Shop</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+        <a href="faq.html" class="mobile-link">FAQ</a>
+        <a href="#" class="mobile-link">My Account</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="text-page-container" data-animate>
+        <h1>Shipping & Returns</h1>
+        
+        <h2>Shipping Policy</h2>
+        <p>We are committed to delivering your order accurately, in good condition, and always on time.</p>
+        <ul>
+            <li>We ship nationwide across Pakistan.</li>
+            <li>All orders are dispatched within 24-48 hours of confirmation.</li>
+            <li>You can expect your order to be delivered within 2-5 working days, depending on your city.</li>
+            <li>A tracking link will be sent to your WhatsApp or email address once your order is dispatched.</li>
+            <li>We offer a flat shipping rate on all orders.</li>
+        </ul>
+
+        <h2>Return Policy</h2>
+        <p>We want you to be completely satisfied with your purchase. If you are not, you can return the product to us.</p>
+        <ul>
+            <li>Returns are accepted within 7 days of delivery.</li>
+            <li>To be eligible for a return, your item must be unused, in the original packaging, and in the same condition that you received it.</li>
+            <li>To initiate a return, please contact our customer support team via WhatsApp or the contact form on our website with your order details.</li>
+            <li>Once your return is received and inspected, we will notify you of the approval or rejection of your refund.</li>
+            <li>If approved, your refund will be processed via bank transfer, JazzCash, or Easypaisa.</li>
+        </ul>
+        
+        <h2>Warranty</h2>
+        <p>All watches come with a 1-year warranty covering the machine/movement. This warranty does not cover damage from misuse, accidents, or normal wear and tear on the strap, glass, or case.</p>
+    </div>
+  </main>
+
+  <div id="cart-overlay"></div>
+  <aside id="cart-sidebar">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button id="close-cart-btn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="cart-list-container">
+      </div>
+    <div class="cart-footer">
+      <div class="subtotal-container">
+        <strong>Subtotal:</strong>
+        <span id="subtotal">$0.00</span>
+      </div>
+      <button class="btn btn-primary checkout-btn">Go to Checkout</button>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>ZAYNAR</h4>
+        <p>Premium luxury products and fashion accessories. Minimalist elegance for the modern world.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="shop.html#watches">Watches</a>
+        <a href="shop.html#wallets">Wallets</a>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="faq.html">FAQ</a>
+        <a href="shipping-returns.html">Shipping & Returns</a>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61578607029967" target="blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/agdkwg4/" target="blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@zaynar408" target="blank" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 ZAYNAR. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

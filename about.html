@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - ZAYNAR</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-hero {
+      background: linear-gradient(135deg, rgba(0, 240, 181, 0.1) 0%, rgba(18, 18, 18, 0.9) 100%), url('img/IMG-20251029-WA0013.jpg') center/cover;
+      background-position: center 30%;
+      padding: 8rem 5% 4rem; text-align: center;
+    }
+    .about-hero h1 { font-size: 3.5rem; font-weight: 700; color: var(--accent-color); margin-bottom: 1rem; letter-spacing: 3px;}
+    .about-hero p { font-size: 1.2rem; color: #ccc; max-width: 700px; margin: 0 auto;}
+    
+    .about-content { max-width: 1200px; margin: 0 auto; padding: 5rem 5%; }
+    .about-section { margin-bottom: 5rem; }
+    .about-section h2 { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 2rem; font-weight: 600;}
+    .about-section p { font-size: 1.1rem; color: #ddd; margin-bottom: 1.5rem; line-height: 1.8;}
+    
+    .story-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 3rem; margin-top: 3rem;}
+    .story-card { 
+      background: var(--surface-color); 
+      padding: 2.5rem; 
+      border-radius: 15px; 
+      border: 1px solid var(--border-color); 
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .story-card:hover { transform: translateY(-10px); border-color: var(--accent-color);}
+    .story-card i { font-size: 3rem; color: var(--accent-color); margin-bottom: 1.5rem;}
+    .story-card h3 { font-size: 1.8rem; color: var(--primary-text); margin-bottom: 1rem; font-weight: 600;}
+    .story-card p { font-size: 1rem; color: var(--secondary-text); line-height: 1.7;}
+    
+    .values-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 2rem; margin-top: 3rem;}
+    .value-box { text-align: center; padding: 2rem; background: rgba(0, 240, 181, 0.03); border-radius: 10px; border: 1px solid var(--border-color); transition: all 0.3s ease;}
+    .value-box:hover { background: rgba(0, 240, 181, 0.08); border-color: var(--accent-color);}
+    .value-box i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;}
+    .value-box h4 { font-size: 1.3rem; color: var(--primary-text); margin-bottom: 0.5rem; font-weight: 600;}
+    .value-box p { font-size: 0.95rem; color: var(--secondary-text);}
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html">
+      <div class="logo">ZAYNAR</div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+      
+      <div class="nav-icons">
+        <a href="#" aria-label="My Account"><i class="fa-regular fa-user"></i></a>
+        <a href="#" id="cart-btn" aria-label="Open Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span id="cart-item-count">0</span>
+        </a>
+        <a href="#" id="hamburger-btn" aria-label="Open Menu"><i class="fa-solid fa-bars-staggered"></i></a>
+      </div>
+    </nav>
+    
+    <div id="mobile-nav" class="mobile-nav-menu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="shop.html" class="mobile-link">Shop</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+        <a href="faq.html" class="mobile-link">FAQ</a>
+        <a href="#" class="mobile-link">My Account</a>
+    </div>
+  </header>
+
+  <section class="about-hero">
+    <h1>ABOUT ZAYNAR</h1>
+    <p>Redefining Luxury and Style Since 2025</p>
+  </section>
+
+  <main class="about-content">
+    <section class="about-section" data-animate>
+      <h2>Our Story</h2>
+      <p>
+        ZAYNAR was born from a passion for timeless elegance and modern sophistication. We believe that true luxury 
+        lies not just in the products you own, but in the confidence they inspire. Our journey began with a simple 
+        vision: to curate a collection that embodies both classic refinement and contemporary style.
+      </p>
+      <p>
+        Every piece in our collection is carefully selected to meet the highest standards of quality and design. 
+        From premium watches that mark life's important moments to minimalist accessories that define your personal style, 
+        ZAYNAR is your destination for accessories that tell your story.
+      </p>
+    </section>
+
+    <section class="about-section" data-animate>
+      <h2>Our Values</h2>
+      <div class="values-container">
+        <div class="value-box">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>Authenticity</h4>
+          <p>100% genuine products guaranteed</p>
+        </div>
+        <div class="value-box">
+          <i class="fa-solid fa-star"></i>
+          <h4>Excellence</h4>
+          <p>Uncompromising quality in every detail</p>
+        </div>
+        <div class="value-box">
+          <i class="fa-solid fa-handshake"></i>
+          <h4>Integrity</h4>
+          <p>Honest, transparent, and reliable</p>
+        </div>
+        <div class="value-box">
+          <i class="fa-solid fa-headset"></i>
+          <h4>Customer First</h4>
+          <p>Dedicated 24/7 support</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" data-animate>
+      <h2>Why Choose ZAYNAR?</h2>
+      <div class="story-grid">
+        <div class="story-card">
+          <i class="fa-solid fa-truck-fast"></i>
+          <h3>Fast Delivery</h3>
+          <p>Swift and secure shipping to your doorstep. We ensure your products arrive safely and on time, every time.</p>
+        </div>
+        <div class="story-card">
+          <i class="fa-solid fa-award"></i>
+          <h3>Warranty & Support</h3>
+          <p>Comprehensive warranty coverage and dedicated customer support to assist you whenever you need help.</p>
+        </div>
+        <div class="story-card">
+          <i class="fa-solid fa-lock"></i>
+          <h3>Secure Payments</h3>
+          <p>Multiple payment options including JazzCash, Easypaisa, and cash on delivery for your convenience.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="cart-overlay"></div>
+  <aside id="cart-sidebar">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button id="close-cart-btn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="cart-list-container">
+      </div>
+    <div class="cart-footer">
+      <div class="subtotal-container">
+        <strong>Subtotal:</strong>
+        <span id="subtotal">$0.00</span>
+      </div>
+      <button class="btn btn-primary checkout-btn">Go to Checkout</button>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>ZAYNAR</h4>
+        <p>Premium luxury products and fashion accessories. Minimalist elegance for the modern world.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="shop.html#watches">Watches</a>
+        <a href="shop.html#wallets">Wallets</a>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="faq.html">FAQ</a>
+        <a href="shipping-returns.html">Shipping & Returns</a>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61578607029967" target="blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/agdkwg4/" target="blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@zaynar408" target="blank" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 ZAYNAR. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

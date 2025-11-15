@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - ZAYNAR</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html">
+      <div class="logo">ZAYNAR</div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+      
+      <div class="nav-icons">
+        <a href="account.html" aria-label="My Account"><i class="fa-regular fa-user"></i></a>
+        <a href="#" id="cart-btn" aria-label="Open Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span id="cart-item-count">0</span>
+        </a>
+        <a href="#" id="hamburger-btn" aria-label="Open Menu"><i class="fa-solid fa-bars-staggered"></i></a>
+      </div>
+    </nav>
+    
+    <div id="mobile-nav" class="mobile-nav-menu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="shop.html" class="mobile-link">Shop</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+        <a href="faq.html" class="mobile-link">FAQ</a>
+        <a href="account.html" class="mobile-link">My Account</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="product-detail-container">
+        
+        <div class="product-image-large" data-animate>
+            <img src="img/product 1.jpg" alt="Patek Philippe Silver">
+        </div>
+
+        <div class="product-info" data-animate>
+             <h1>Patek Philippe Silver Dial</h1>
+            <span class="price-large">$450.00</span>
+            <p class="product-description">
+                An icon of casual elegance, this timepiece features a stunning dial and premium bracelet. The automatic movement is a testament to its quality.
+            </p>
+            <button class="btn btn-primary add-to-cart-btn add-to-cart-btn-large">
+
+                Add to Bag
+            </button>
+        </div>
+
+        <div class="product-details-full" data-animate>
+            <h2>Product Details</h2>
+            <p id="product-specs">
+                <strong>Movement:</strong> Automatic Self-Winding<br>
+                <strong>Case Material:</strong> Stainless Steel<br>
+                <strong>Dial:</strong> Silver-White<br>
+                <strong>Bracelet:</strong> Integrated Stainless Steel<br>
+                <strong>Features:</strong> Date Window, Water Resistant
+            </p>
+        </div>
+    </div>
+  </main>
+
+  <div id="cart-overlay"></div>
+  <aside id="cart-sidebar">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button id="close-cart-btn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="cart-list-container">
+      </div>
+    <div class="cart-footer">
+      <div class="subtotal-container">
+        <strong>Subtotal:</strong>
+        <span id="subtotal">$0.00</span>
+      </div>
+      <button class="btn btn-primary checkout-btn">Go to Checkout</button>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>ZAYNAR</h4>
+        <p>Premium luxury products and fashion accessories. Minimalist elegance for the modern world.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="shop.html#watches">Watches</a>
+        <a href="shop.html#wallets">Wallets</a>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="faq.html">FAQ</a>
+        <a href="shipping-returns.html">Shipping & Returns</a>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61578607029967" target="blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/agdkwg4/" target="blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@zaynar408" target="blank" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 ZAYNAR. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  
+  <script>
+    // --- Master Product Database ---
+    const products = {
+      // Default/Fallback Product
+      'default': {
+        img: 'img/product 1.jpg',
+        title: 'Patek Philippe Silver',
+        price: '$450.00',
+        desc: 'An icon of casual elegance, this Patek Philippe timepiece features a stunning silver-white dial with a stainless steel integrated bracelet. The automatic movement is visible through the sapphire-crystal case back.',
+        specs: '<strong>Movement:</strong> Automatic Self-Winding<br><strong>Case Material:</strong> Stainless Steel<br><strong>Dial:</strong> Silver-White<br><strong>Bracelet:</strong> Integrated Stainless Steel<br><strong>Features:</strong> Date Window, Water Resistant'
+      },
+      'patek-silver': {
+        img: 'img/product 1.jpg',
+        title: 'Patek Philippe Silver',
+        price: '$450.00',
+        desc: 'An icon of casual elegance, this Patek Philippe timepiece features a stunning silver-white dial with a stainless steel integrated bracelet. The automatic movement is visible through the sapphire-crystal case back.',
+        specs: '<strong>Movement:</strong> Automatic Self-Winding<br><strong>Case Material:</strong> Stainless Steel<br><strong>Dial:</strong> Silver-White<br><strong>Bracelet:</strong> Integrated Stainless Steel<br><strong>Features:</strong> Date Window, Water Resistant'
+      },
+      'rado-skeleton': {
+        img: 'img/IMG-20251104-WA0016.jpg',
+        title: 'Rado Skeleton Dial',
+        price: '$275.00',
+        desc: 'This Rado features a stunning skeleton dial, revealing the intricate automatic movement within. Housed in a modern, durable case with a matching steel bracelet.',
+        specs: '<strong>Movement:</strong> Automatic Skeleton<br><strong>Case Material:</strong> Stainless Steel<br><strong>Dial:</strong> Skeleton (Gold/Black)<br><strong>Bracelet:</strong> Stainless Steel<br><strong>Features:</strong> See-through Dial, Water Resistant'
+      },
+      'rolex-land-dweller-green': {
+        img: 'img/product 3.jpg',
+        title: 'Rolex Land-Dweller Green',
+        price: '$250.00',
+        desc: 'A classic timepiece featuring a vibrant green honeycomb dial, fluted bezel, and a robust oyster-style bracelet. Perfect for any occasion.',
+        specs: '<strong>Movement:</strong> Automatic<br><strong>Case Material:</strong> Stainless Steel<br><strong>Dial:</strong> Green Honeycomb<br><strong>Bracelet:</strong> Jubilee-style Steel<br><strong>Features:</strong> Date Window, Fluted Bezel'
+      },
+      'chenxi-chrono': {
+        img: 'img/IMG-20251029-WA0013.jpg',
+        title: 'Chenxi Chronograph',
+        price: '$130.00',
+        desc: 'A bold, rectangular chronograph with a sophisticated black dial and leather strap. Features multiple subdials for precise timekeeping.',
+        specs: '<strong>Movement:</strong> Quartz Chronograph<br><strong>Case Material:</strong> Alloy<br><strong>Dial:</strong> Black Textured<br><strong>Strap:</strong> Black Leather<br><strong>Features:</strong> Chronograph Subdials, Date Window'
+      },
+      'bestwin-gold-green': {
+        img: 'New img/golden steps green.jpg',
+        title: 'Bestwin Gold Green',
+        price: '$150.00',
+        desc: 'A modern, minimalist watch with a striking gold-tone octagonal case and a deep green dial. Paired with a comfortable green silicone strap.',
+        specs: '<strong>Movement:</strong> Quartz<br><strong>Case Material:</strong> Gold-Tone Alloy<br><strong>Dial:</strong> Green Sunburst<br><strong>Strap:</strong> Green Silicone<br><strong>Features:</strong> Date Window, Minimalist Design'
+      },
+      'tissot-chrono-gold': {
+        img: 'New img/golden chain watch.png',
+        title: 'Tissot Chronograph Gold',
+        price: '$220.00',
+        desc: 'A luxurious two-tone chronograph from Tissot. The black dial with gold accents provides a classic, sporty look, complemented by a silver and gold steel bracelet.',
+        specs: '<strong>Movement:</strong> Quartz Chronograph<br><strong>Case Material:</strong> Two-Tone Stainless Steel<br><strong>Dial:</strong> Black with Gold Subdials<br><strong>Bracelet:</strong> Two-Tone Stainless Steel<br><strong>Features:</strong> Tachymeter, Chronograph, Date Window'
+      },
+      'bestwin-gold-blue': {
+        img: 'New img/golden steps blue.jpg',
+        title: 'Bestwin Gold Blue',
+        price: '$150.00',
+        desc: 'A modern, minimalist watch with a striking gold-tone octagonal case and a deep blue dial. Paired with a comfortable blue silicone strap.',
+        specs: '<strong>Movement:</strong> Quartz<br><strong>Case Material:</strong> Gold-Tone Alloy<br><strong>Dial:</strong> Blue Sunburst<br><strong>Strap:</strong> Blue Silicone<br><strong>Features:</strong> Date Window, Minimalist Design'
+      },
+      'tissot-chrono-black': {
+        img: 'New img/black chain watch.jpg',
+        title: 'Tissot Chronograph Black',
+        price: '$200.00',
+        desc: 'A sleek and stealthy all-black chronograph from Tissot. The black dial with contrasting subdials offers excellent readability, finished with a matching black steel bracelet.',
+        specs: '<strong>Movement:</strong> Quartz Chronograph<br><strong>Case Material:</strong> Black PVD Stainless Steel<br><strong>Dial:</strong> Black<br><strong>Bracelet:</strong> Black PVD Stainless Steel<br><strong>Features:</strong> Tachymeter, Chronograph, Date Window'
+      },
+      'tissot-prx-twotone-blue': {
+        img: 'img/IMG-20251102-WA0006.jpg',
+        title: 'Tissot PRX Two-Tone Blue',
+        price: '$180.00',
+        desc: 'The Tissot PRX in a stunning two-tone (steel and gold) finish with a deep blue dial. Features the Powermatic 80 movement and integrated bracelet.',
+        specs: '<strong>Movement:</strong> Automatic (Powermatic 80)<br><strong>Case Material:</strong> Two-Tone Stainless Steel<br><strong>Dial:</strong> Blue<br><strong>Bracelet:</strong> Two-Tone Integrated Steel<br><strong>Features:</strong> Date Window, 80-Hour Power Reserve'
+      },
+      'seiko-twotone-blue': {
+        img: 'img/IMG-20251105-WA0007.jpg',
+        title: 'Seiko Two-Tone Blue',
+        price: '$190.00',
+        desc: 'A classic Seiko dress watch with a beautiful blue textured dial, gold-tone bezel and hands, and a two-tone steel bracelet. Features a small-seconds subdial.',
+        specs: '<strong>Movement:</strong> Quartz<br><strong>Case Material:</strong> Two-Tone Stainless Steel<br><strong>Dial:</strong> Blue Textured<br><strong>Bracelet:</strong> Two-Tone Stainless Steel<br><strong>Features:</strong> Small Seconds Subdial, Date Window'
+      },
+      'rolex-crown-red': {
+        img: 'img/IMG-20251103-WA0034.jpg',
+        title: 'Rolex Crown Red Dial',
+        price: '$230.00',
+        desc: 'A unique and eye-catching timepiece with a vibrant red dial, gold-tone case, and a prominent crystal-set crown logo. Paired with a black rubber strap.',
+        specs: '<strong>Movement:</strong> Automatic<br><strong>Case Material:</strong> Gold-Tone Steel<br><strong>Dial:</strong> Red with Crystal Crown<br><strong>Strap:</strong> Black Rubber<br><strong>Features:</strong> Date Window, Fluted Bezel'
+      },
+      'rado-true-white': {
+        img: 'img/IMG-20251104-WA0017.jpg',
+        title: 'Rado True White Dial',
+        price: '$210.00',
+        desc: 'The epitome of minimalism. This Rado True features a square case, a clean white dial, and an integrated steel bracelet. A timeless and elegant design.',
+        specs: '<strong>Movement:</strong> Quartz<br><strong>Case Material:</strong> Stainless Steel<br><strong>Dial:</strong> White<br><strong>Bracelet:</strong> Stainless Steel<br><strong>Features:</strong> Date Window, Minimalist Design'
+      },
+      'wallet-classic-black': {
+        img: 'New img/wallet.png',
+        title: 'Classic Black Wallet',
+        price: '$60.00',
+        desc: 'A timeless bifold wallet crafted from premium black leather with fine stitching. Features multiple card slots and a full-size bill compartment.',
+        specs: '<strong>Material:</strong> Genuine Leather<br><strong>Color:</strong> Black<br><strong>Type:</strong> Bifold<br><strong>Features:</strong> Multiple Card Slots, Bill Compartment'
+      },
+      'wallet-dark-brown': {
+        img: 'New img/wallet 2.png',
+        title: 'Dark Brown Leather Wallet',
+        price: '$45.00',
+        desc: 'A classic bifold wallet crafted from premium dark brown leather. A rich, elegant color for a sophisticated look.',
+        specs: '<strong>Material:</strong> Genuine Leather<br><strong>Color:</strong> Dark Brown<br><strong>Type:</strong> Bifold<br><strong>Features:</strong> Multiple Card Slots, Bill Compartment'
+      },
+      'wallet-tan-leather': {
+        img: 'New img/wallet 3.png',
+        title: 'Tan Leather Wallet',
+        price: '$45.00',
+        desc: 'A stylish bifold wallet in a beautiful tan leather. Perfect for a casual yet refined look. Ages beautifully over time.',
+        specs: '<strong>Material:</strong> Genuine Leather<br><strong>Color:</strong> Tan<br><strong>Type:</strong> Bifold<br><strong>Features:</strong> Multiple Card Slots, Bill Compartment'
+      },
+      'wallet-minimalist-black': {
+        img: 'New img/wallet 1.png',
+        title: 'Minimalist Black Wallet',
+        price: '$45.00',
+        desc: 'A sleek, modern, and minimalist black wallet. Designed for those who carry only the essentials. Slim profile fits perfectly in any pocket.',
+        specs: '<strong>Material:</strong> Genuine Leather<br><strong>Color:</strong> Black<br><strong>Type:</strong> Minimalist Bifold<br><strong>Features:</strong> Slim Profile, Card Slots'
+      }
+    };
+
+    // Get the product name from URL (e.g. ?product=patek-silver)
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('product');
+
+    // Select the product to display
+    // If slug exists and is in our database, use it. Otherwise, use the 'default' product.
+    const product = (slug && products[slug]) ? products[slug] : products['default'];
+
+    // --- Get DOM Elements to Update ---
+    const pageTitle = document.querySelector('title');
+    const img = document.querySelector('.product-image-large img');
+    const titleEl = document.querySelector('.product-info h1');
+    const priceEl = document.querySelector('.product-info .price-large');
+    const descEl = document.querySelector('.product-description');
+    const addBtn = document.querySelector('.add-to-cart-btn-large');
+    const specsEl = document.getElementById('product-specs');
+
+    // --- Update Page Content ---
+    if (product) {
+      pageTitle.textContent = `${product.title} - ZAYNAR`;
+      if (img) { img.src = product.img; img.alt = product.title; }
+      if (titleEl) titleEl.textContent = product.title;
+      if (priceEl) priceEl.textContent = product.price;
+      if (descEl) descEl.textContent = product.desc;
+      if (specsEl) specsEl.innerHTML = product.specs;
+      
+      // Update the "Add to Bag" button
+      if (addBtn) {
+        addBtn.setAttribute('data-product', product.title);
+        // Extract numeric value from price string (e.g., "$450.00" -> 450)
+        const priceNum = product.price.replace(/[^0-9.]/g, '');
+        addBtn.setAttribute('data-price', priceNum);
+      }
+    }
+  </script>
+
+</body>
+</html>

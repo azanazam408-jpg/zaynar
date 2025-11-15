@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - ZAYNAR</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Correct CSS Link -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+        <a href="index.html">
+      <div class="logo">ZAYNAR</div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+      
+      <div class="nav-icons">
+        <a href="#" aria-label="My Account"><i class="fa-regular fa-user"></i></a>
+        <a href="#" id="cart-btn" aria-label="Open Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span id="cart-item-count">0</span>
+        </a>
+        <a href="#" id="hamburger-btn" aria-label="Open Menu"><i class="fa-solid fa-bars-staggered"></i></a>
+      </div>
+    </nav>
+    
+    <div id="mobile-nav" class="mobile-nav-menu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="shop.html" class="mobile-link">Shop</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+        <a href="faq.html" class="mobile-link">FAQ</a>
+        <a href="#" class="mobile-link">My Account</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="checkout-container" data-animate>
+        <h1>Checkout</h1>
+        
+        <div class="checkout-layout-grid">
+            
+            <div class="checkout-form">
+                <form action="#" id="place-order-form">
+                    
+                    <section class="checkout-section">
+                        <h2>Billing Details</h2>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="03001234567" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control">
+                        </div>
+                    </section>
+                    
+                    <section class="checkout-section">
+                        <h2>Shipping Address</h2>
+                        <div class="form-group">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" class="form-control" placeholder="House #, Street, Area" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="province">Province</label>
+                            <input type="text" id="province" class="form-control" value="Punjab" required>
+                        </div>
+                    </section>
+
+                </form>
+            </div>
+            
+            <div class="checkout-order-summary">
+                <section class="checkout-section">
+                    <h2>Your Order</h2>
+                    
+                    <div class="order-summary-box">
+                        
+                        <hr>
+                        
+                        <div class="order-total">
+                            <span>Subtotal</span>
+                            <strong></strong>
+                        </div>
+                        <div class="order-total">
+                            <span>Shipping</span>
+                            <strong>$5.00</strong>
+                        </div>
+                        
+                        <hr>
+                        
+                        <div class="order-total grand-total">
+                            <span>Total</span>
+                            <strong></strong>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <h3>Payment Method</h3>
+                        <div class="payment-option">
+                            <input type="radio" id="cod" name="payment" value="cod" checked>
+                            <label for="cod">Cash on Delivery (COD)</label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="jazzcash" name="payment" value="jazzcash">
+                            <label for="jazzcash">JazzCash</label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="easypaisa" name="payment" value="easypaisa">
+                            <label for="easypaisa">Easypaisa</label>
+                        </div>
+                        <p class="payment-instructions">
+                            Pay with JazzCash or Easypaisa after placing the order. Our representative will contact you with payment details.
+                        </p>
+                    </div>
+                    
+                    <button type="submit" form="place-order-form" class="btn btn-primary" style="width: 100%; padding: 16px;">
+                        Place Order
+                    </button>
+                    
+                </section>
+            </div>
+        </div>
+
+    </div>
+  </main>
+
+  <div id="cart-overlay"></div>
+  <aside id="cart-sidebar">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button id="close-cart-btn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="cart-list-container"></div>
+    <div class="cart-footer">
+      <div class="subtotal-container">
+        <strong>Subtotal:</strong>
+        <span id="subtotal">$0.00</span>
+      </div>
+      <button class="btn btn-primary checkout-btn">Go to Checkout</button>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>ZAYNAR</h4>
+        <p>Premium luxury products and fashion accessories. Minimalist elegance for the modern world.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="shop.html#watches">Watches</a>
+        <a href="shop.html#wallets">Wallets</a>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="faq.html">FAQ</a>
+        <a href="shipping-returns.html">Shipping & Returns</a>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61578607029967" target="blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/agdkwg4/" target="blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@zaynar408" target="blank" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 ZAYNAR. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- Correct Script Loading -->
+  <script src="script.js"></script>
+
+</body>
+</html>

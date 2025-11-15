@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Account - ZAYNAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  </head>
+<body>
+<header>
+  <nav class="navbar">
+      <a href="index.html">
+      <div class="logo">ZAYNAR</div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+      
+      <div class="nav-icons">
+        <a href="account.html" aria-label="My Account"><i class="fa-regular fa-user"></i></a>
+        <a href="#" id="cart-btn" aria-label="Open Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span id="cart-item-count">0</span>
+        </a>
+        <a href="#" id="hamburger-btn" aria-label="Open Menu"><i class="fa-solid fa-bars-staggered"></i></a>
+      </div>
+    </nav>
+    
+    <div id="mobile-nav" class="mobile-nav-menu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="shop.html" class="mobile-link">Shop</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+        <a href="faq.html" class="mobile-link">FAQ</a>
+        <a href="account.html" class="mobile-link">My Account</a>
+    </div>
+</header>
+<main>
+  <section class="contact-container" style="max-width: 500px;" data-animate>
+    <div id="form-area">
+      <h1 id="form-title" style="font-size: 2.5em; text-align: center; color: var(--accent-color); margin-bottom: 2.5rem;">Account Sign In</h1>
+      <form id="account-form" class="contact-form">
+        <div class="form-group">
+          <label for="firstname">First Name:</label>
+          <input id="firstname" name="firstname" type="text" placeholder="First Name" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="lastname">Last Name:</label>
+          <input id="lastname" name="lastname" type="text" placeholder="Last Name" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input id="age" name="age" type="number" placeholder="Your Age" min="10" max="100" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input id="email" name="email" type="email" placeholder="your@email.com" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input id="password" name="password" type="password" placeholder="Enter password" required class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">Register / Login</button>
+      </form>
+      <p id="toggle-link-area" style="text-align: center; margin-top: 1.5rem; color: var(--secondary-text);">Already have an account? <a href="#" id="toggle-link" style="color: var(--accent-color);">Login</a></p>
+    </div>
+    
+    <div id="welcome-area" style="display: none; text-align: center;">
+      <div class="welcome">
+        <h1 style="font-size: 2.5em; color: var(--accent-color); margin-bottom: 1.5rem;">Welcome, <span id="user-name"></span>!</h1>
+        <p style="font-size: 1.1em; color: var(--primary-text); margin-bottom: 0.5rem;">Your age: <span id="user-age"></span></p>
+        <p style="font-size: 1.1em; color: var(--primary-text); margin-bottom: 2rem;">Your email: <span id="user-email"></span></p>
+        <button class="btn btn-primary" id="logout-btn" style="background-color: var(--border-color); border-color: var(--border-color);">Logout</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="cart-overlay"></div>
+  <aside id="cart-sidebar">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button id="close-cart-btn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="cart-list-container">
+      </div>
+    <div class="cart-footer">
+      <div class="subtotal-container">
+        <strong>Subtotal:</strong>
+        <span id="subtotal">$0.00</span>
+      </div>
+      <button class="btn btn-primary checkout-btn">Go to Checkout</button>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>ZAYNAR</h4>
+        <p>Premium luxury products and fashion accessories. Minimalist elegance for the modern world.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="shop.html#watches">Watches</a>
+        <a href="shop.html#wallets">Wallets</a>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="faq.html">FAQ</a>
+        <a href="shipping-returns.html">Shipping & Returns</a>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61578607029967" target="blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/agdkwg4/" target="blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@zaynar408" target="blank" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 ZAYNAR. All Rights Reserved.
+    </div>
+  </footer>
+
+<script src="script.js"></script>
+<script>
+  // Utility functions
+  function saveUser(user) {
+    localStorage.setItem("accountUser", JSON.stringify(user));
+  }
+  function getUser() {
+    const raw = localStorage.getItem("accountUser");
+    return raw ? JSON.parse(raw) : null;
+  }
+  function removeUser() {
+    localStorage.removeItem("accountUser");
+  }
+
+  // UI Elements
+  const formArea = document.getElementById('form-area');
+  const form = document.getElementById('account-form');
+  const welcomeArea = document.getElementById('welcome-area');
+  const userNameSpan = document.getElementById('user-name');
+  const userAgeSpan = document.getElementById('user-age');
+  const userEmailSpan = document.getElementById('user-email');
+  const logoutBtn = document.getElementById('logout-btn');
+
+  // Show user profile if logged in
+  function showWelcome(user) {
+    userNameSpan.textContent = user.firstname + " " + user.lastname;
+    userAgeSpan.textContent = user.age;
+    userEmailSpan.textContent = user.email;
+    formArea.style.display = 'none';
+    welcomeArea.style.display = 'block';
+  }
+  // Show form if not logged in
+  function showForm() {
+    form.reset();
+    formArea.style.display = 'block';
+    welcomeArea.style.display = 'none';
+  }
+
+  // Handle form submit
+  form.onsubmit = (e) => {
+    e.preventDefault();
+    const user = {
+      firstname: form.firstname.value,
+      lastname: form.lastname.value,
+      age: form.age.value,
+      email: form.email.value,
+      password: form.password.value
+    };
+    saveUser(user);
+    showWelcome(user);
+  };
+
+  logoutBtn.onclick = () => {
+    removeUser();
+    showForm();
+  };
+
+  // On page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const user = getUser();
+    if (user) {
+      showWelcome(user);
+    } else {
+      showForm();
+    }
+  });
+</script>
+</body>
+</html>
