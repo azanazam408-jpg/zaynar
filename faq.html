@@ -3,234 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - ZAYNAR</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>FAQ | ZAYNAR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
-    
+    <link rel="icon" href="img/logo.jpg" />
     <style>
-        .faq-page-content {
-            max-width: 900px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-        .faq-section {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem;
-        }
-        .faq-section .section-title {
-            text-align: left;
-            margin-top: 0;
-            margin-bottom: 2.5rem;
-            color: var(--accent-color);
-        }
-        .faq-category {
-            margin-bottom: 2rem;
-        }
-        .faq-category h3 {
-            color: var(--primary-text);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 10px;
-        }
-        .faq-item {
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-        }
-        .faq-question {
-            font-weight: 600;
-            cursor: pointer;
-            background: var(--surface-color);
-            color: var(--primary-text);
-            padding: 1.2rem 1.5rem;
-            transition: background 0.2s;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-question:hover {
-            background: #2a2a2a;
-        }
-        .faq-question::after {
-            content: '\f067'; /* Font Awesome Plus */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            transition: transform 0.3s ease;
-        }
-        .faq-answer {
-            display: none;
-            background: var(--bg-color);
-            color: var(--secondary-text);
-            padding: 1.5rem;
-            line-height: 1.7;
-        }
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-        .faq-item.active .faq-question::after {
-            content: '\f068'; /* Font Awesome Minus */
-            transform: rotate(0deg);
-        }
+        .faq-item { margin-bottom: 20px; border: 1px solid var(--border-light); background: var(--bg-panel); }
+        .faq-q { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-heading); font-size: 1.1rem; }
+        .faq-a { padding: 0 20px; height: 0; overflow: hidden; transition: 0.3s; color: var(--text-muted); }
+        .faq-item.active .faq-a { padding: 20px; height: auto; border-top: 1px solid var(--border-light); }
+        .faq-item.active .faq-q { color: var(--accent-gold); }
+        .faq-category-title { color: var(--accent-gold); margin: 40px 0 20px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
-
-    <header>
-      <nav class="navbar">
-        <a href="index.html">
-        <div class="logo">ZAYNAR</div>
-        </a>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="faq.html" class="active">FAQ</a></li>
-        </ul>
-        
-        <div class="nav-icons">
-          <a href="#" aria-label="My Account"><i class="fa-regular fa-user"></i></a>
-          <a href="#" id="cart-btn" aria-label="Open Cart">
-            <i class="fa-solid fa-bag-shopping"></i>
-            <span id="cart-item-count">0</span>
-          </a>
-          <a href="#" id="hamburger-btn" aria-label="Open Menu"><i class="fa-solid fa-bars-staggered"></i></a>
+    <header id="main-header">
+        <div class="header-inner">
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Collection</a>
+                <a href="about.html" class="nav-link">Legacy</a>
+            </nav>
+            <a href="index.html" class="brand-logo">ZAYNAR</a>
+            <div class="header-actions">
+                <a href="contact.html" class="icon-link"><i class="fa-solid fa-envelope"></i></a>
+                <a href="account.html" class="icon-link"><i class="fa-regular fa-user"></i></a>
+                <button id="cart-toggle" class="icon-link"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count">0</span></button>
+                <button id="menu-toggle" class="icon-link mobile-only"><i class="fa-solid fa-bars"></i></button>
+            </div>
         </div>
-      </nav>
-      
-      <div id="mobile-nav" class="mobile-nav-menu">
-          <a href="index.html" class="mobile-link">Home</a>
-          <a href="shop.html" class="mobile-link">Shop</a>
-          <a href="about.html" class="mobile-link">About</a>
-          <a href="contact.html" class="mobile-link">Contact</a>
-          <a href="faq.html" class="mobile-link">FAQ</a>
-          <a href="#" class="mobile-link">My Account</a>
-      </div>
     </header>
 
-    <main class="faq-page-content">
-        <section class="faq-section" data-animate>
-            <h2 class="section-title">Frequently Asked Questions</h2>
+    <div id="mobile-menu">
+        <div class="menu-content">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Collection</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <main style="padding-top: 150px; max-width: 800px; margin: 0 auto; padding-bottom: 100px; padding-left: 20px; padding-right: 20px;">
+        <div class="text-center fade-up" style="margin-bottom: 60px;">
+            <h1>Frequently Asked</h1>
+            <p style="color: var(--text-muted);">Common questions about our products and services.</p>
+        </div>
+        
+        <div class="faq-list fade-up delay-1">
             
-            <div class="faq-category">
-                <h3>Payment</h3>
-                <div class="faq-item">
-                    <div class="faq-question">What payment methods do you accept?</div>
-                    <div class="faq-answer">We accept JazzCash, Easypaisa, cash on delivery, and secure card payments.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Is my payment information safe?</div>
-                    <div class="faq-answer">Yes, all payments are processed securely using industry-standard encryption.</div>
-                </div>
+            <h4 class="faq-category-title">General</h4>
+            <div class="faq-item">
+                <div class="faq-q">Are your products authentic? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-a">Yes, every ZAYNAR timepiece and accessory is 100% authentic and undergoes rigorous quality checks before dispatch.</div>
             </div>
-            
-            <div class="faq-category">
-                <h3>Shipping</h3>
-                <div class="faq-item">
-                    <div class="faq-question">Where do you ship?</div>
-                    <div class="faq-answer">We ship nationwide across Pakistan using reliable courier partners.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">How long does delivery take?</div>
-                    <div class="faq-answer">Delivery usually takes 2-5 working days, depending on your city.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Can I track my order?</div>
-                    <div class="faq-answer">Yes, after dispatch, a tracking link is sent to your WhatsApp or email.</div>
-                </div>
-            </div>
-            
-            <div class="faq-category">
-                <h3>Products & Authenticity</h3>
-                <div class="faq-item">
-                    <div class="faq-question">Are your products genuine?</div>
-                    <div class="faq-answer">Yes, all our watches, wallets, and accessories are 100% original and quality checked.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Do you offer product warranty?</div>
-                    <div class="faq-answer">Most items include a 1-year warranty on the watch movement. See individual item descriptions or our Shipping & Returns page for warranty info.</div>
-                </div>
-            </div>
-            
-            <div class="faq-category">
-                <h3>Returns & Refunds</h3>
-                <div class="faq-item">
-                    <div class="faq-question">Can I return or exchange items?</div>
-                    <div class="faq-answer">Yes! Returns are accepted within 7 days if items are unused and in original packaging. Please see our <a href="shipping-returns.html" style="color: var(--accent-color);">Shipping & Returns</a> page for full details.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">How do I start a return or refund?</div>
-                    <div class="faq-answer">Contact us on WhatsApp or via the <a href="contact.html" style="color: var(--accent-color);">contact form</a> with your order details.</div>
-                </div>
+            <div class="faq-item">
+                <div class="faq-q">Do you have a physical store? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-a">Currently, we operate exclusively online to maintain competitive pricing and offer nationwide reach.</div>
             </div>
 
-        </section>
+            <h4 class="faq-category-title">Orders & Shipping</h4>
+            <div class="faq-item">
+                <div class="faq-q">What is your shipping policy? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-a">We offer nationwide shipping in Pakistan. Deliveries typically take 2-5 business days depending on the city.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Can I check the parcel before payment? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-a">We offer an "Open Parcel" policy for select locations. Please confirm with our support team on WhatsApp before placing your order.</div>
+            </div>
+
+            <h4 class="faq-category-title">Warranty & Care</h4>
+            <div class="faq-item">
+                <div class="faq-q">Do you offer warranties? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-a">All our watches come with a standard 1-year movement warranty. This covers mechanical faults but excludes physical damage.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Are the watches waterproof? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-a">Most of our collection is water-resistant (3ATM). This means they can withstand splashes and rain, but should not be worn while swimming or showering.</div>
+            </div>
+        </div>
     </main>
     
-    <div id="cart-overlay"></div>
-    <aside id="cart-sidebar">
-      <div class="cart-header">
-        <h3>Your Bag</h3>
-        <button id="close-cart-btn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div id="cart-list-container">
+    <div id="cart-drawer">
+        <div class="cart-header"><h3>Shopping Bag</h3><button id="close-cart"><i class="fa-solid fa-xmark"></i></button></div>
+        <div id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total"><span>Total</span><span id="cart-total-price">$0.00</span></div>
+            <a href="checkout.html" class="btn primary-btn full-width">Checkout</a>
         </div>
-      <div class="cart-footer">
-        <div class="subtotal-container">
-          <strong>Subtotal:</strong>
-          <span id="subtotal">$0.00</span>
-        </div>
-        <button class="btn btn-primary checkout-btn">Go to Checkout</button>
-      </div>
-    </aside>
+    </div>
+    <div id="overlay"></div>
 
     <footer>
-      <div class="footer-container">
-        <div class="footer-column">
-          <h4>ZAYNAR</h4>
-          <p>Premium luxury products and fashion accessories. Minimalist elegance for the modern world.</p>
+        <div class="container footer-grid">
+            <div><div class="brand-logo">ZAYNAR</div><p>Timeless elegance for the modern era.</p></div>
+            <div class="footer-links"><h4>Shop</h4><a href="shop.html">Watches</a><a href="shop.html">Wallets</a></div>
+            <div class="footer-links"><h4>Support</h4><a href="contact.html">Contact</a><a href="faq.html">FAQ</a><a href="track-order.html">Track Order</a></div>
+            <div class="footer-links"><h4>Social</h4>
+                <a href="https://www.instagram.com/zaynar408/" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61583361166526" target="_blank">Facebook</a>
+                <a href="https://www.tiktok.com/@zaynar408?lang=en-GB" target="_blank">TikTok</a>
+            </div>
         </div>
-        <div class="footer-column">
-          <h4>Shop</h4>
-          <a href="shop.html">All Products</a>
-          <a href="shop.html#watches">Watches</a>
-          <a href="shop.html#wallets">Wallets</a>
-        </div>
-        <div class="footer-column">
-          <h4>Support</h4>
-          <a href="contact.html">Contact Us</a>
-          <a href="faq.html">FAQ</a>
-          <a href="shipping-returns.html">Shipping & Returns</a>
-        </div>
-        <div class="footer-column">
-          <h4>Follow Us</h4>
-          <div class="social-icons">
-            <a href="https://www.facebook.com/profile.php?id=61578607029967" target="blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/agdkwg4/" target="blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@zaynar408" target="blank" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        &copy; 2025 ZAYNAR. All Rights Reserved.
-      </div>
+        <div class="footer-bottom">&copy; 2025 ZAYNAR. All Rights Reserved.</div>
     </footer>
-    
+
     <script src="script.js"></script>
     <script>
-        // FAQ section expand/collapse
-        document.querySelectorAll('.faq-question').forEach(q => {
-            q.addEventListener('click', function() {
-                this.parentElement.classList.toggle('active');
+        document.querySelectorAll('.faq-q').forEach(item => {
+            item.addEventListener('click', () => {
+                item.parentElement.classList.toggle('active');
+                const icon = item.querySelector('i');
+                icon.classList.toggle('fa-plus');
+                icon.classList.toggle('fa-minus');
             });
         });
     </script>

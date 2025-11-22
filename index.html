@@ -1,444 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZAYNAR - Premium Watches & Accessories</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="img/logo.jpg" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAYNAR | Timeless Luxury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo.jpg" />
 </head>
 <body>
-   <!-- Custom Cursor -->
-    <div class="cursor" id="cursor">
-        <div class="cursor-inner"></div>
-        <div class="cursor-outer"></div>
-    </div>
-
-  <header>
-    <nav class="navbar">
-      <a href="index.html">
-      <div class="logo">ZAYNAR</div>
-      </a>
-      <div id="loader">
-  <div class="spinner"></div>
+    <div id="top-bar">
+  <span>FREE Worldwide Shipping on All Orders! ✈️</span>
+  <span id="countdown">Limited Drop Ends In: <strong>2sec</strong></span>
 </div>
 
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-      </ul>
-      
-      <div class="nav-icons">
-        <a href="account.html" aria-label="My Account"><i class="fa-regular fa-user"></i></a>
-        <a href="#" id="cart-btn" aria-label="Open Cart">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span id="cart-item-count">0</span>
-        </a>
-        <a href="#" id="hamburger-btn" aria-label="Open Menu"><i class="fa-solid fa-bars-staggered"></i></a>
-      </div>
-    </nav>
-    
-    <div id="mobile-nav" class="mobile-nav-menu">
-        <a href="index.html" class="mobile-link">Home</a>
-        <a href="shop.html" class="mobile-link">Shop</a>
-        <a href="about.html" class="mobile-link">About</a>
-        <a href="contact.html" class="mobile-link">Contact</a>
-        <a href="faq.html" class="mobile-link">FAQ</a>
-        <a href="account.html" class="mobile-link">My Account</a>
+<style>
+#top-bar {
+  background: #000; color: #d4af37; text-align: center; padding: 10px; font-size: 14px;
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
+}
+#countdown { font-weight: 600; }
+@media (max-width: 768px) { #top-bar { flex-direction: column; gap: 5px; font-size: 13px; } }
+</style>
+
+<script>
+// Simple countdown – change the deadline here
+const deadline = new Date("Dec 31, 2025 23:59:59").getTime();
+const x = setInterval(function() {
+  const now = new Date().getTime();
+  const distance = deadline - now;
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.querySelector("#countdown strong").innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+  if (distance < 0) clearInterval(x);
+}, 1000);
+</script>
+
+
+    <header id="main-header">
+        <div class="header-inner">
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="shop.html" class="nav-link">Collection</a>
+                <a href="about.html" class="nav-link">Legacy</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <a href="index.html" class="brand-logo">ZAYNAR</a>
+            <div class="header-actions">
+                <button id="theme-btn" class="icon-link"><i class="fa-solid fa-sun"></i></button>
+                <a href="account.html" class="icon-link"><i class="fa-regular fa-user"></i></a>
+                <button id="cart-trigger" class="icon-link"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count">0</span></button>
+                <button id="menu-trigger" class="icon-link mobile-only"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu">
+        <div class="mm-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </div>
-  </header>
 
-  <main>
-    <section class="slider" id="home">
-      <div class="slide active">
-        <img src="img/a4.jpg" alt="Slide 1">
-        <div class="slide-content" data-animate>
-          <h2>Timeless Elegance</h2>
-          <p>Discover the new 2025 Watch Collection.</p>
-          <a href="shop.html" class="btn btn-primary">Shop Now</a>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="New img/wallet 3.png" alt="Slide 2">
-        <div class="slide-content">
-          <h2>Minimalist Style</h2>
-          <p>Premium leather goods and accessories.</p>
-          <a href="shop.html" class="btn btn-primary">Shop Wallets</a>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="img/a3.jpg" alt="Slide 3">
-        <div class="slide-content">
-          <h2>Premium Accessories</h2>
-          <p>Watches, Wallets, and more to complete your look.</p>
-          <a href="shop.html" class="btn btn-primary">Shop All</a>
-        </div>
-      </div>
-      
-      <button class="slider-nav prev"><i class="fa-solid fa-chevron-left"></i></button>
-      <button class="slider-nav next"><i class="fa-solid fa-chevron-right"></i></button>
-      <div class="slider-dots">
-        <span class="dot active" data-slide="0"></span>
-        <span class="dot" data-slide="1"></span>
-        <span class="dot" data-slide="2"></span>
-      </div>
-    </section>
-
-    <section class="features-bar" data-animate>
-        <div class="feature-item">
-            <i class="fa-solid fa-truck-fast"></i>
-            <h4>Fast Shipping</h4>
-            <p>Nationwide 2-5 Day Delivery</p>
-        </div>
-        <div class="feature-item">
-            <i class="fa-solid fa-shield-halved"></i>
-            <h4>1-Year Warranty</h4>
-            <p>On All Watch Movements</p>
-        </div>
-        <div class="feature-item">
-            <i class="fa-solid fa-headset"></i>
-            <h4>24/7 Support</h4>
-            <p>Contact us via WhatsApp or Email</p>
-        </div>
-        <div class="feature-item">
-            <i class="fa-solid fa-lock"></i>
-            <h4>Secure Payments</h4>
-            <p>COD, JazzCash & Easypaisa</p>
+    <section class="hero-fullscreen">
+        <div class="hero-bg"><img src="img/a3.jpg" alt="Luxury Watch"><div class="hero-overlay"></div></div>
+        <div class="hero-content">
+            <span class="eyebrow fade-up">The 2025 Collection</span>
+            <h1 class="hero-title fade-up delay-1">Precision in <br> Every Second</h1>
+            <p class="hero-desc fade-up delay-2">Discover timepieces that define status and elegance.</p>
+            <div class="fade-up delay-3">
+                <a href="shop.html" class="btn btn-primary">View Collection</a>
+                <a href="about.html" class="btn btn-secondary" style="margin-left: 20px;">Our Story</a>
+            </div>
         </div>
     </section>
 
-    <section id="featured-products" class="products-section">
-      <h2 class="section-title" data-animate>Featured Products</h2>
-      <div class="product-grid">
-        
-        <div class="product-card" data-animate>
-          <div class="product-image">
-            <a href="product-detail.html?product=patek-silver">
-           <img src="img/product 1.jpg" alt="Patek Philippe Silver"></a>
-            <button class="btn quick-add-btn add-to-cart-btn" data-product="Patek Philippe Silver" data-price="450">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <h3><a href="product-detail.html?product=patek-silver">Patek Philippe Silver</a></h3>
-          <span class="price">$450.00</span>
+    <div class="marquee">
+        <div class="marquee-track">
+            <span>SWISS MOVEMENT</span> &bull; <span>SAPPHIRE CRYSTAL</span> &bull; <span>LIFETIME WARRANTY</span> &bull; <span>HANDCRAFTED</span> &bull; 
+            <span>SWISS MOVEMENT</span> &bull; <span>SAPPHIRE CRYSTAL</span> &bull; <span>LIFETIME WARRANTY</span> &bull; <span>HANDCRAFTED</span> &bull;
         </div>
-        
-        <div class="product-card" data-animate data-delay="100">
-          <div class="product-image">
-            <a href="product-detail.html?product=rado-skeleton"><img src="img/IMG-20251104-WA0016.jpg" alt="Rado Skeleton Dial"></a>
-            <button class="btn quick-add-btn add-to-cart-btn" data-product="Rado Skeleton Dial" data-price="275">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <h3><a href="product-detail.html?product=rado-skeleton">Rado Skeleton Dial</a></h3>
-          <span class="price">$275.00</span>
-        </div>
+    </div>
 
-        <div class="product-card" data-animate data-delay="200">
-          <div class="product-image">
-            <a href="product-detail.html?product=rolex-land-dweller-green"><img src="img/product 3.jpg" alt="Rolex Land-Dweller Green"></a>
-            <button class="btn quick-add-btn add-to-cart-btn" data-product="Rolex Land-Dweller Green" data-price="250">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <h3><a href="product-detail.html?product=rolex-land-dweller-green">Rolex Land-Dweller Green</a></h3>
-          <span class="price">$250.00</span>
-        </div>
 
-        <div class="product-card" data-animate data-delay="300">
-          <div class="product-image">
-            <a href="product-detail.html?product=chenxi-chrono"><img src="img/IMG-20251029-WA0013.jpg" alt="Chenxi Chronograph"></a>
-            <button class="btn quick-add-btn add-to-cart-btn" data-product="Chenxi Chronograph" data-price="130">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <h3><a href="product-detail.html?product=chenxi-chrono">Chenxi Chronograph</a></h3>
-          <span class="price">$130.00</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="video-section" data-animate>
-        <div class="video-overlay"></div>
-        <img src="img/IMG-20251104-WA0030.jpg" alt="Watch Showcase Video" class="video-bg">
-        <div class="video-content">
-            <a href="#" class="play-button" aria-label="Play Video">
-                <i class="fa-solid fa-play"></i>
-            </a>
-            <h2 data-animate>Experience The Craftsmanship</h2>
-            <p data-animate>See our 2025 collection in motion.</p>
-        </div>
-    </section>
-
-    <section class="testimonials-section" id="reviews">
-        <h2 class="section-title" data-animate>What Our Customers Say</h2>
-        <div class="testimonial-grid">
-            <div class="review-card" data-animate>
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+    <main>
+        <section class="section-spacing container">
+            <div class="section-header fade-up">
+                <span class="eyebrow" style="color:var(--accent-gold);">Curated Selection</span>
+                <h2>Best Sellers</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="product-grid">
+                <div class="product-card scroll-reveal">
+                    <div class="card-img"><img src="img/product 1.jpg"><div class="card-overlay"><button class="icon-btn add-to-cart" data-id="patek-silver"><i class="fa-solid fa-plus"></i></button></div></div>
+                    <div class="card-info"><h3>Patek Philippe Silver</h3><div class="price">$450.00</div></div>
                 </div>
-                <blockquote>"The quality of the Tissot PRX I received is outstanding. Looks even better in person. Fast delivery to Lahore."</blockquote>
-                <cite>— Ahmed S.</cite>
-            </div>
-            <div class="review-card" data-animate data-delay="100">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+
+                <div class="product-card scroll-reveal delay-1">
+                    <div class="card-img"><img src="img/IMG-20251104-WA0016.jpg"><div class="card-overlay"><button class="icon-btn add-to-cart" data-id="rado-skeleton"><i class="fa-solid fa-plus"></i></button></div></div>
+                    <div class="card-info"><h3>Rado Skeleton</h3><div class="price">$275.00</div></div>
                 </div>
-                <blockquote>"I bought a leather wallet. It's premium, sleek, and exactly what I was looking for. Highly recommend ZAYNAR."</blockquote>
-                <cite>— Fatima K.</cite>
-            </div>
-            <div class="review-card" data-animate data-delay="200">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                <div class="product-card scroll-reveal delay-2">
+                    <div class="card-img"><img src="img/product 3.jpg"><div class="card-overlay"><button class="icon-btn add-to-cart" data-id="rolex-green"><i class="fa-solid fa-plus"></i></button></div></div>
+                    <div class="card-info"><h3>Rolex Land-Dweller</h3><div class="price">$250.00</div></div>
                 </div>
-                <blockquote>"Great customer service. They answered all my questions on WhatsApp before I placed my order. Watch is beautiful."</blockquote>
-                <cite>— Usman B.</cite>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="categories" id="categories">
-      <h2 class="section-title" data-animate>Shop by Category</h2>
-      <div class="category-grid" style="grid-template-columns: repeat(2, 1fr);">
-        <a href="shop.html#watches" class="category-card" data-animate>
-          <img src="New img/golden steps white.jpg" alt="Watches">
-          <div class="category-name">Watches</div>
-        </a>
-        <a href="shop.html#wallets" class="category-card" data-animate data-delay="100">
-          <img src="New img/wallet 2.png" alt="Wallets">
-          <div class="category-name">Wallets</div>
-        </a>
-      </div>
-    </section>
-
-    <section id="watches" class="products-section">
-      <h2 class="section-title" data-animate>Our Collection</h2>
-      <div class="product-grid">
-        
-        <div class="product-card" data-animate>
-          <div class="product-image">
-            <a href="product-detail.html?product=bestwin-gold-green"><img src="New img/golden steps green.jpg" alt="Bestwin Gold Green"></a>
-            <button class="btn quick-add-btn add-to-cart-btn" data-product="Bestwin Gold Green" data-price="150">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <h3><a href="product-detail.html?product=bestwin-gold-green">
-          Bestwin Gold Green</a></h3>
-          <span class="price">$150.00</span>
-        </div>
-        
-        <div class="product-card" data-animate data-delay="100">
-          <div class="product-image">
-            <a href="product-detail.html?product=tissot-chrono-gold">
-             <img src="New img/golden chain watch.png" alt="Tissot Chronograph Gold"></a>
-            <button class="btn quick-add-btn add-to-cart-btn" data-product="Tissot Chronograph Gold" data-price="220">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <h3><a href="product-detail.html?product=tissot-chrono-gold">
-             Tissot Chronograph Gold</a></h3>
-          <span class="price">$220.00</span>
-        </div>
-
-        <div class="product-card" data-animate data-delay="200">
-          <div class="product-image">
-            <a href="product-detail.html?product=bestwin-gold-blue">
-            <img src="New img/golden steps blue.jpg" alt="Bestwin Gold Blue"></a>
-            <button class="btn quick-add-btn add-to-cart-btn" data-product="Bestwin Gold Blue" data-price="150">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <h3><a href="product-detail.html?product=bestwin-gold-blue">
-          Bestwin Gold Blue</a></h3>
-          <span class="price">$150.00</span>
-        </div>
-
-        <div class="product-card" data-animate data-delay="300">
-          <div class="product-image">
-            <a href="product-detail.html?product=tissot-chrono-black">
-           <img src="New img/black chain watch.jpg" alt="Tissot Chronograph Black"></a>
-            <button class="btn quick-add-btn add-to-cart-btn" data-product="Tissot Chronograph Black" data-price="200">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <h3><a href="product-detail.html?product=tissot-chrono-black">
-            Tissot Chronograph Black</a></h3>
-          <span class="price">$200.00</span>
-        </div>
-        
-        <div class="product-card" data-animate>
-          <div class="product-image">
-            <a href="product-detail.html?product=tissot-prx-twotone-blue">
-            <img src="img/IMG-20251102-WA0006.jpg" alt="Tissot PRX Two-Tone Blue"></a>
-            <button class="btn quick-add-btn add-to-cart-btn" data-product="Tissot PRX Two-Tone Blue" data-price="180">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <h3><a href="product-detail.html?product=tissot-prx-twotone-blue">
-           Tissot PRX Two-Tone Blue</a></h3>
-          <span class="price">$180.00</span>
-        </div>
-
-        <div class="product-card" data-animate data-delay="100">
-          <div class="product-image">
-            <a href="product-detail.html?product=seiko-twotone-blue">
-            <img src="img/IMG-20251105-WA0007.jpg" alt="Seiko Two-Tone Blue"></a>
-            <button class="btn quick-add-btn add-to-cart-btn" data-product="Seiko Two-Tone Blue" data-price="190">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <h3><a href="product-detail.html?product=seiko-twotone-blue">
-            Seiko Two-Tone Blue</a></h3>
-          <span class="price">$190.00</span>
-        </div>
-
-        <div class="product-card" data-animate data-delay="200">
-          <div class="product-image">
-            <a href="product-detail.html?product=rolex-crown-red">
-             <img src="img/IMG-20251103-WA0034.jpg" alt="Rolex Crown Red Dial"></a>
-            <button class="btn quick-add-btn add-to-cart-btn" data-product="Rolex Crown Red Dial" data-price="230">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <h3><a href="product-detail.html?product=rolex-crown-red">
-          Rolex Crown Red Dial</a></h3>
-          <span class="price">$230.00</span>
-        </div>
-
-        <div class="product-card" data-animate data-delay="300">
-          <div class="product-image">
-            <a href="product-detail.html?product=rado-true-white">
-             <img src="img/IMG-20251104-WA0017.jpg" alt="Rado True White Dial"></a>
-            <button class="btn quick-add-btn add-to-cart-btn" data-product="Rado True White Dial" data-price="210">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <h3><a href="product-detail.html?product=rado-true-white">
-             Rado True White Dial</a></h3>
-          <span class="price">$210.00</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="wallets" class="products-section">
-      <h2 class="section-title" data-animate>Wallets</h2>
-      <div class="product-grid">
-          
-        <div class="product-card" data-animate>
-            <div class="product-image">
-             <a href="product-detail.html?product=wallet-classic-black">
-            <img src="New img/wallet.png" alt="Classic Black Wallet"></a>
-              <button class="btn quick-add-btn add-to-cart-btn" data-product="Classic Black Wallet" data-price="60">
-                <i class="fa-solid fa-plus"></i>
-              </button>
+        <section class="section-spacing" style="background: var(--bg-panel);">
+            <div class="container text-center">
+                <div class="section-header fade-up"><h2>Why ZAYNAR?</h2></div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px;">
+                    <div class="scroll-reveal">
+                        <i class="fa-solid fa-medal" style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 20px;"></i>
+                        <h3>Authenticity</h3>
+                        <p>100% Genuine products with verification certificates.</p>
+                    </div>
+                    <div class="scroll-reveal delay-1">
+                        <i class="fa-solid fa-truck-fast" style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 20px;"></i>
+                        <h3>Global Shipping</h3>
+                        <p>Secure, insured delivery to your doorstep worldwide.</p>
+                    </div>
+                    <div class="scroll-reveal delay-2">
+                        <i class="fa-solid fa-shield-halved" style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 20px;"></i>
+                        <h3>Warranty</h3>
+                        <p>Comprehensive 1-year warranty on all movements.</p>
+                    </div>
+                </div>
             </div>
-            <h3><a href="product-detail.html?product=wallet-classic-black">
-               Classic Black Wallet</a></h3>
-            <span class="price">$60.00</span>
-          </div>
-          
-          <div class="product-card" data-animate data-delay="100">
-            <div class="product-image">
-              <a href="product-detail.html?product=wallet-dark-brown">
-                 <img src="New img/wallet 2.png" alt="Dark Brown Leather Wallet"></a>
-              <button class="btn quick-add-btn add-to-cart-btn" data-product="Dark Brown Leather Wallet" data-price="45">
-                <i class="fa-solid fa-plus"></i>
-              </button>
-            </div>
-            <h3><a href="product-detail.html?product=wallet-dark-brown">
-              Dark Brown Leather Wallet</a></h3>
-            <span class="price">$45.00</span>
-          </div>
+        </section>
 
-          <div class="product-card" data-animate data-delay="200">
-            <div class="product-image">
-              <a href="product-detail.html?product=wallet-tan-leather">
-              <img src="New img/wallet 3.png" alt="Tan Leather Wallet"></a>
-              <button class="btn quick-add-btn add-to-cart-btn" data-product="Tan Leather Wallet" data-price="45">
-                <i class="fa-solid fa-plus"></i>
-              </button>
+        <section style="height: 500px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+            <img src="img/a4.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+            <div class="container text-center" style="position: relative; z-index: 2;">
+                <h2 class="fade-up" style="font-size: 3rem; margin-bottom: 20px;">The Midnight Series</h2>
+                <a href="shop.html" class="btn btn-primary fade-up delay-1">Discover Now</a>
             </div>
-            <h3><a href="product-detail.html?product=wallet-tan-leather">
-            Tan Leather Wallet</a></h3>
-            <span class="price">$45.00</span>
-          </div>
-          
-          <div class="product-card" data-animate data-delay="300">
-            <div class="product-image">
-              <a href="product-detail.html?product=wallet-minimalist-black">
-              <img src="New img/wallet 1.png" alt="Minimalist Black Wallet"></a>
-              <button class="btn quick-add-btn add-to-cart-btn" data-product="Minimalist Black Wallet" data-price="45">
-                <i class="fa-solid fa-plus"></i>
-              </button>
-            </div>
-            <h3><a href="product-detail.html?product=wallet-minimalist-black">
-               Minimalist Black Wallet</a></h3>
-            <span class="price">$45.00</span>
-          </div>
-      </div>
-    </section>
-    
-  </main>
+        </section>
 
-  <div id="cart-overlay"></div>
-  <aside id="cart-sidebar">
-    <div class="cart-header">
-      <h3>Your Bag</h3>
-      <button id="close-cart-btn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+        <section class="section-spacing container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div class="scroll-reveal" style="position: relative; height: 400px; overflow: hidden;">
+                    <img src="img/IMG-20251029-WA0002.jpg" style="height: 100%; object-fit: cover;">
+                    <div style="position: absolute; bottom: 30px; left: 30px;">
+                        <h3>Watches</h3>
+                        <a href="shop.html" style="color: var(--accent-gold); border-bottom: 1px solid;">Shop Now</a>
+                    </div>
+                </div>
+                <div class="scroll-reveal delay-1" style="position: relative; height: 400px; overflow: hidden;">
+                    <img src="New img/wallet 3.png" style="height: 100%; object-fit: cover;">
+                    <div style="position: absolute; bottom: 30px; left: 30px;">
+                        <h3>Accessories</h3>
+                        <a href="shop.html" style="color: var(--accent-gold); border-bottom: 1px solid;">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-spacing" style="background: var(--bg-panel);">
+            <div class="container text-center">
+                <i class="fa-solid fa-quote-left" style="font-size: 2rem; color: var(--accent-gold);"></i>
+                <h3 class="scroll-reveal" style="font-size: 2rem; margin: 30px 0; max-width: 800px; margin-left: auto; margin-right: auto;">"The quality of the timepiece exceeded my expectations. ZAYNAR is truly the definition of affordable luxury."</h3>
+                <p class="scroll-reveal delay-1">- Jonathan D., Verified Buyer</p>
+            </div>
+        </section>
+
+        <section class="section-spacing inner-circle">
+            <div class="container text-center">
+                <span class="eyebrow">Exclusive Access</span>
+                <h2>Join the Inner Circle</h2>
+                <p>Subscribe for early access to new drops and private sales.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address">
+                    <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="cart-drawer">
+        <div class="drawer-header"><h3>Shopping Bag</h3><button id="close-drawer"><i class="fa-solid fa-xmark"></i></button></div>
+        <div id="cart-items" class="drawer-content"></div>
+        <div class="drawer-footer">
+            <div style="display:flex; justify-content:space-between; margin-bottom:20px;"><span>Total</span><span id="cart-total">$0.00</span></div>
+            <a href="checkout.html" class="btn btn-primary" style="width:100%; display:block; text-align:center;">Checkout</a>
+        </div>
     </div>
-    <div id="cart-list-container">
-      </div>
-    <div class="cart-footer">
-      <div class="subtotal-container">
-        <strong>Subtotal:</strong>
-        <span id="subtotal">$0.00</span>
-      </div>
-      <button class="btn btn-primary checkout-btn">Go to Checkout</button>
-    </div>
-  </aside>
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column" data-animate>
-        <h4>ZAYNAR</h4>
-        <p>Premium luxury products and fashion accessories. Minimalist elegance for the modern world.</p>
-      </div>
-      <div class="footer-column" data-animate data-delay="100">
-        <h4>Shop</h4>
-        <a href="shop.html">All Products</a>
-        <a href="shop.html#watches">Watches</a>
-        <a href="shop.html#wallets">Wallets</a>
-      </div>
-      <div class="footer-column" data-animate data-delay="200">
-        <h4>Support</h4>
-        <a href="contact.html">Contact Us</a>
-        <a href="faq.html">FAQ</a>
-        <a href="shipping-returns.html">Shipping & Returns</a>
-      </div>
-      <div class="footer-column" data-animate data-delay="300">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61578607029967" target="blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/agdkwg4/" target="blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@zaynar408" target="blank" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      &copy; 2025 ZAYNAR. All Rights Reserved.
-    </div>
-  </footer>
+    <div id="overlay"></div>
 
-  <script src="script.js"></script>
-  
-  </body>
+    <footer>
+        <div class="container footer-grid">
+            <div><div class="brand-logo">ZAYNAR</div><p>Timeless elegance for the modern era.</p></div>
+            <div class="footer-links"><h4>Shop</h4><a href="shop.html">Watches</a><a href="shop.html">Wallets</a></div>
+            <div class="footer-links"><h4>Support</h4><a href="contact.html">Contact</a><a href="faq.html">FAQ</a><a href="track-order.html">Track Order</a></div>
+            <div class="footer-links"><h4>Social</h4>
+                <a href="https://www.instagram.com/zaynar408/" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61583361166526" target="_blank">Facebook</a>
+                <a href="https://www.tiktok.com/@zaynar408?lang=en-GB" target="_blank">TikTok</a>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2025 ZAYNAR. All Rights Reserved.</div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- WhatsApp Chat Widget -->
+<link rel="stylesheetwhats" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<a href="https://wa.me/923446393926?text=Hi%20ZAYNAR%20%E2%9C%A8%20I'm%20interested%20in%20your%20new%20collection!" 
+   class="whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer">
+  <div class="whatsapp-icon">
+    <i class="fab fa-whatsapp"></i>
+  </div>
+  <div class="whatsapp-tooltip">Chat with us on WhatsApp!</div>
+</a>
+
+<style>
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #20c05a;
+  color: white;
+}
+
+.whatsapp-icon i {
+  animation: pulse 2s infinite;
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #333;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 25px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+  right: 80px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .whatsapp-float { bottom: 15px; right: 15px; width: 55px; height: 55px; font-size: 28px; }
+  .whatsapp-tooltip { display: none; }
+}
+</style>
+</body>
 </html>

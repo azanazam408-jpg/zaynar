@@ -1,203 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout - ZAYNAR</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- Correct CSS Link -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | ZAYNAR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo.jpg" />
+    <style>
+        .checkout { max-width: 900px; margin: 140px auto 100px; padding: 0 20px; }
+        .card { background: var(--bg-panel); padding: 45px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-card); }
+        .form-control { width: 100%; padding: 18px; background: var(--bg-body); border: 1px solid var(--border-color); color: white; border-radius: 10px; margin-bottom: 22px; font-size: 1.1rem; }
+        .form-control:focus { border-color: var(--accent-gold); outline: none; }
+
+        .btn { width: 100%; padding: 22px; font-size: 1.4rem; border: none; border-radius: 14px; cursor: pointer;
+                display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: 700; margin-top: 15px; }
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-whatsapp:hover { background: #128C7E; }
+        .btn-instagram { background: linear-gradient(45deg, #833AB4, #C13584, #E1306C, #FD1D1D); color: white; }
+        .btn-instagram:hover { opacity: 0.92; }
+
+        .order-box { background: var(--bg-body); padding: 25px; border-radius: 12px; margin: 35px 0; }
+        .order-box h3 { color: var(--accent-gold); margin-bottom: 15px; text-align:center; }
+    </style>
 </head>
 <body>
 
-  <header>
-    <nav class="navbar">
-        <a href="index.html">
-      <div class="logo">ZAYNAR</div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-      </ul>
-      
-      <div class="nav-icons">
-        <a href="#" aria-label="My Account"><i class="fa-regular fa-user"></i></a>
-        <a href="#" id="cart-btn" aria-label="Open Cart">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span id="cart-item-count">0</span>
-        </a>
-        <a href="#" id="hamburger-btn" aria-label="Open Menu"><i class="fa-solid fa-bars-staggered"></i></a>
-      </div>
-    </nav>
-    
-    <div id="mobile-nav" class="mobile-nav-menu">
-        <a href="index.html" class="mobile-link">Home</a>
-        <a href="shop.html" class="mobile-link">Shop</a>
-        <a href="about.html" class="mobile-link">About</a>
-        <a href="contact.html" class="mobile-link">Contact</a>
-        <a href="faq.html" class="mobile-link">FAQ</a>
-        <a href="#" class="mobile-link">My Account</a>
-    </div>
-  </header>
+<header id="main-header" style="position:fixed; background:rgba(0,0,0,0.6); backdrop-filter:blur(15px);">
+    <div class="header-inner"><a href="index.html" class="brand-logo">ZAYNAR</a></div>
+</header>
 
-  <main>
-    <div class="checkout-container" data-animate>
-        <h1>Checkout</h1>
+<div class="checkout">
+    <div class="card fade-up">
+        <h2 style="text-align:center; margin-bottom:35px; font-size:3rem;">Complete Your Order</h2>
+
+        <input type="text" id="name" class="form-control" placeholder="Full Name *" required>
+        <input type="tel" id="phone" class="form-control" placeholder="WhatsApp Number (+923xxxxxxxxx) *" required>
+        <input type="text" id="address" class="form-control" placeholder="Full Delivery Address (House#, Street, Area) *" required>
         
-        <div class="checkout-layout-grid">
-            
-            <div class="checkout-form">
-                <form action="#" id="place-order-form">
-                    
-                    <section class="checkout-section">
-                        <h2>Billing Details</h2>
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control" placeholder="03001234567" required>
-                        </div>
-                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control">
-                        </div>
-                    </section>
-                    
-                    <section class="checkout-section">
-                        <h2>Shipping Address</h2>
-                        <div class="form-group">
-                            <label for="address">Street Address</label>
-                            <input type="text" id="address" class="form-control" placeholder="House #, Street, Area" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" id="city" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="province">Province</label>
-                            <input type="text" id="province" class="form-control" value="Punjab" required>
-                        </div>
-                    </section>
+        <select id="city" class="form-control" required>
+            <option value="">Select City *</option>
+            <option>Lahore</option><option>Karachi</option><option>Islamabad</option><option>Rawalpindi</option>
+            <option>Faisalabad</option><option>Multan</option><option>Gujranwala</option><option>Peshawar</option><option>Other</option>
+        </select>
 
-                </form>
-            </div>
-            
-            <div class="checkout-order-summary">
-                <section class="checkout-section">
-                    <h2>Your Order</h2>
-                    
-                    <div class="order-summary-box">
-                        
-                        <hr>
-                        
-                        <div class="order-total">
-                            <span>Subtotal</span>
-                            <strong></strong>
-                        </div>
-                        <div class="order-total">
-                            <span>Shipping</span>
-                            <strong>$5.00</strong>
-                        </div>
-                        
-                        <hr>
-                        
-                        <div class="order-total grand-total">
-                            <span>Total</span>
-                            <strong></strong>
-                        </div>
-                    </div>
-                    
-                    <div class="payment-methods">
-                        <h3>Payment Method</h3>
-                        <div class="payment-option">
-                            <input type="radio" id="cod" name="payment" value="cod" checked>
-                            <label for="cod">Cash on Delivery (COD)</label>
-                        </div>
-                        <div class="payment-option">
-                            <input type="radio" id="jazzcash" name="payment" value="jazzcash">
-                            <label for="jazzcash">JazzCash</label>
-                        </div>
-                        <div class="payment-option">
-                            <input type="radio" id="easypaisa" name="payment" value="easypaisa">
-                            <label for="easypaisa">Easypaisa</label>
-                        </div>
-                        <p class="payment-instructions">
-                            Pay with JazzCash or Easypaisa after placing the order. Our representative will contact you with payment details.
-                        </p>
-                    </div>
-                    
-                    <button type="submit" form="place-order-form" class="btn btn-primary" style="width: 100%; padding: 16px;">
-                        Place Order
-                    </button>
-                    
-                </section>
-            </div>
+        <div class="order-box">
+            <h3>Your Order Summary</h3>
+            <div id="order-items" style="line-height:2.2; font-size:1.1rem;"></div>
+            <div style="border-top:2px solid var(--accent-gold); padding-top:20px; margin-top:20px; font-size:1.5rem; text-align:center; color:var(--accent-gold); font-weight:700;" id="final-total"></div>
         </div>
 
-    </div>
-  </main>
+        <!-- WhatsApp Button -->
+        <button id="whatsapp-btn" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp fa-2x"></i>
+            Order via WhatsApp (Recommended)
+        </button>
 
-  <div id="cart-overlay"></div>
-  <aside id="cart-sidebar">
-    <div class="cart-header">
-      <h3>Your Bag</h3>
-      <button id="close-cart-btn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <div id="cart-list-container"></div>
-    <div class="cart-footer">
-      <div class="subtotal-container">
-        <strong>Subtotal:</strong>
-        <span id="subtotal">$0.00</span>
-      </div>
-      <button class="btn btn-primary checkout-btn">Go to Checkout</button>
-    </div>
-  </aside>
+        <!-- Instagram Button -->
+        <button id="instagram-btn" class="btn btn-instagram">
+            <i class="fa-brands fa-instagram fa-2x"></i>
+            Order via Instagram DM
+        </button>
 
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <h4>ZAYNAR</h4>
-        <p>Premium luxury products and fashion accessories. Minimalist elegance for the modern world.</p>
-      </div>
-      <div class="footer-column">
-        <h4>Shop</h4>
-        <a href="shop.html">All Products</a>
-        <a href="shop.html#watches">Watches</a>
-        <a href="shop.html#wallets">Wallets</a>
-      </div>
-      <div class="footer-column">
-        <h4>Support</h4>
-        <a href="contact.html">Contact Us</a>
-        <a href="faq.html">FAQ</a>
-        <a href="shipping-returns.html">Shipping & Returns</a>
-      </div>
-      <div class="footer-column">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61578607029967" target="blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/agdkwg4/" target="blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@zaynar408" target="blank" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-      </div>
+        <p style="text-align:center; margin-top:30px; color:var(--text-secondary);">
+            Choose any option — your complete order will be auto-filled and ready to send!
+        </p>
     </div>
-    <div class="footer-bottom">
-      &copy; 2025 ZAYNAR. All Rights Reserved.
-    </div>
-  </footer>
+</div>
 
-  <!-- Correct Script Loading -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if (cart.length === 0) {
+        alert('Cart is empty!');
+        window.location.href = 'shop.html';
+        return;
+    }
+
+    let subtotal = 0;
+    const itemsDiv = document.getElementById('order-items');
+
+    cart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        itemsDiv.innerHTML += `<div>${item.name} × ${item.qty} = <strong>$${itemTotal}</strong></div>`;
+    });
+
+    const shipping = 5;
+    const total = subtotal + shipping;
+    document.getElementById('final-total').innerHTML = `Total: <span style="font-size:1.8rem;">$${total.toFixed(2)}</span> (incl. shipping)`;
+
+    function generateMessage() {
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const city = document.getElementById('city').value;
+
+        if (!name || !phone || !address || !city) {
+            alert('Please fill all fields first!');
+            return null;
+        }
+
+        let msg = `*NEW ORDER - ZAYNAR LUXURY*%0A%0A`;
+        msg += `Name: ${name}%0A`;
+        msg += `Phone: ${phone}%0A`;
+        msg += `Address: ${address}, ${city}%0A%0A`;
+        msg += `*Items:*%0A`;
+        cart.forEach(item => {
+            msg += `• ${item.name} × ${item.qty} = $${item.price * item.qty}%0A`;
+        });
+        msg += `%0ASubtotal: $${subtotal.toFixed(2)}%0A`;
+        msg += `Shipping: $5%0A`;
+        msg += `*TOTAL: $${total.toFixed(2)}*%0A%0A`;
+        msg += `Payment: Cash on Delivery%0A`;
+        msg += `Thank you ✨ ZAYNAR`;
+
+        return msg;
+    }
+
+    // === WHATSAPP ===
+    document.getElementById('whatsapp-btn').addEventListener('click', () => {
+        const text = generateMessage();
+        if (!text) return;
+
+        // ⚠️ CHANGE THIS TO YOUR REAL WHATSAPP NUMBER
+        const waNumber = "923446393926"; // ← Put your number here
+
+        window.open(`https://wa.me/${waNumber}?text=${text}`, '_blank');
+
+        setTimeout(() => { localStorage.removeItem('cart'); updateCartUI(); }, 2000);
+    });
+
+    // === INSTAGRAM ===
+    document.getElementById('instagram-btn').addEventListener('click', () => {
+        const text = generateMessage();
+        if (!text) return;
+
+        // ⚠️ CHANGE THIS TO YOUR REAL INSTAGRAM USERNAME (without @)
+        const igUsername = "ZAYNAR"; // ← Put your IG username here
+
+        const encoded = encodeURIComponent(decodeURIComponent(text)); // double encode fix
+        window.open(`https://www.instagram.com/direct/inbox/?text=${encoded}`, '_blank');
+        
+        // Optional fallback for some phones
+        setTimeout(() => {
+            if (!document.hidden) {
+                window.open(`instagram://user?username=${igUsername}`);
+            }
+        }, 1000);
+
+        setTimeout(() => { localStorage.removeItem('cart'); updateCartUI(); }, 2000);
+    });
+});
+</script>
 
 </body>
 </html>

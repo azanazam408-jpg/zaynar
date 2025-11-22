@@ -1,132 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shipping & Returns - ZAYNAR</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policies | ZAYNAR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo.jpg" />
+    <style>
+        .policy-container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .policy-section { margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid var(--border-light); }
+        .policy-section:last-child { border-bottom: none; }
+        .policy-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+        .policy-header i { color: var(--accent-gold); font-size: 1.5rem; }
+        .policy-header h2 { margin: 0; font-size: 1.8rem; }
+        .policy-content p { margin-bottom: 15px; color: var(--text-muted); }
+        .policy-content ul { list-style: none; padding-left: 20px; }
+        .policy-content li { position: relative; margin-bottom: 10px; color: var(--text-main); }
+        .policy-content li::before { content: '•'; color: var(--accent-gold); position: absolute; left: -20px; font-size: 1.2rem; }
+    </style>
 </head>
 <body>
 
-  <header>
-    <nav class="navbar">
-      <a href="index.html">
-      <div class="logo">ZAYNAR</div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-      </ul>
-      
-      <div class="nav-icons">
-        <a href="#" aria-label="My Account"><i class="fa-regular fa-user"></i></a>
-        <a href="#" id="cart-btn" aria-label="Open Cart">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span id="cart-item-count">0</span>
-        </a>
-        <a href="#" id="hamburger-btn" aria-label="Open Menu"><i class="fa-solid fa-bars-staggered"></i></a>
-      </div>
-    </nav>
-    
-    <div id="mobile-nav" class="mobile-nav-menu">
-        <a href="index.html" class="mobile-link">Home</a>
-        <a href="shop.html" class="mobile-link">Shop</a>
-        <a href="about.html" class="mobile-link">About</a>
-        <a href="contact.html" class="mobile-link">Contact</a>
-        <a href="faq.html" class="mobile-link">FAQ</a>
-        <a href="#" class="mobile-link">My Account</a>
-    </div>
-  </header>
-
-  <main>
-    <div class="text-page-container" data-animate>
-        <h1>Shipping & Returns</h1>
-        
-        <h2>Shipping Policy</h2>
-        <p>We are committed to delivering your order accurately, in good condition, and always on time.</p>
-        <ul>
-            <li>We ship nationwide across Pakistan.</li>
-            <li>All orders are dispatched within 24-48 hours of confirmation.</li>
-            <li>You can expect your order to be delivered within 2-5 working days, depending on your city.</li>
-            <li>A tracking link will be sent to your WhatsApp or email address once your order is dispatched.</li>
-            <li>We offer a flat shipping rate on all orders.</li>
-        </ul>
-
-        <h2>Return Policy</h2>
-        <p>We want you to be completely satisfied with your purchase. If you are not, you can return the product to us.</p>
-        <ul>
-            <li>Returns are accepted within 7 days of delivery.</li>
-            <li>To be eligible for a return, your item must be unused, in the original packaging, and in the same condition that you received it.</li>
-            <li>To initiate a return, please contact our customer support team via WhatsApp or the contact form on our website with your order details.</li>
-            <li>Once your return is received and inspected, we will notify you of the approval or rejection of your refund.</li>
-            <li>If approved, your refund will be processed via bank transfer, JazzCash, or Easypaisa.</li>
-        </ul>
-        
-        <h2>Warranty</h2>
-        <p>All watches come with a 1-year warranty covering the machine/movement. This warranty does not cover damage from misuse, accidents, or normal wear and tear on the strap, glass, or case.</p>
-    </div>
-  </main>
-
-  <div id="cart-overlay"></div>
-  <aside id="cart-sidebar">
-    <div class="cart-header">
-      <h3>Your Bag</h3>
-      <button id="close-cart-btn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <div id="cart-list-container">
-      </div>
-    <div class="cart-footer">
-      <div class="subtotal-container">
-        <strong>Subtotal:</strong>
-        <span id="subtotal">$0.00</span>
-      </div>
-      <button class="btn btn-primary checkout-btn">Go to Checkout</button>
-    </div>
-  </aside>
-
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <h4>ZAYNAR</h4>
-        <p>Premium luxury products and fashion accessories. Minimalist elegance for the modern world.</p>
-      </div>
-      <div class="footer-column">
-        <h4>Shop</h4>
-        <a href="shop.html">All Products</a>
-        <a href="shop.html#watches">Watches</a>
-        <a href="shop.html#wallets">Wallets</a>
-      </div>
-      <div class="footer-column">
-        <h4>Support</h4>
-        <a href="contact.html">Contact Us</a>
-        <a href="faq.html">FAQ</a>
-        <a href="shipping-returns.html">Shipping & Returns</a>
-      </div>
-      <div class="footer-column">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61578607029967" target="blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/agdkwg4/" target="blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@zaynar408" target="blank" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+    <header id="main-header">
+        <div class="header-inner">
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Collection</a>
+                <a href="about.html" class="nav-link">Legacy</a>
+            </nav>
+            <a href="index.html" class="brand-logo">ZAYNAR</a>
+            <div class="header-actions">
+                <a href="contact.html" class="icon-link"><i class="fa-solid fa-envelope"></i></a>
+                <a href="account.html" class="icon-link"><i class="fa-regular fa-user"></i></a>
+                <button id="cart-toggle" class="icon-link"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count">0</span></button>
+                <button id="menu-toggle" class="icon-link mobile-only"><i class="fa-solid fa-bars"></i></button>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      &copy; 2025 ZAYNAR. All Rights Reserved.
-    </div>
-  </footer>
+    </header>
 
-  <script src="script.js"></script>
+    <div id="mobile-menu">
+        <div class="menu-content">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Collection</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
 
+    <main style="padding-top: 150px; min-height: 100vh;">
+        <div class="text-center fade-up" style="margin-bottom: 80px;">
+            <h1>Client Care Policies</h1>
+            <p style="color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 10px;">Transparency & Trust</p>
+        </div>
+
+        <div class="policy-container fade-up delay-1">
+            
+            <div class="policy-section">
+                <div class="policy-header">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <h2>Shipping Policy</h2>
+                </div>
+                <div class="policy-content">
+                    <p>We are committed to delivering your ZAYNAR timepiece accurately, in pristine condition, and always on time.</p>
+                    <ul>
+                        <li><strong>Nationwide Coverage:</strong> We ship to all cities across Pakistan via secure courier partners.</li>
+                        <li><strong>Processing Time:</strong> All orders are verified and dispatched within 24-48 hours of confirmation.</li>
+                        <li><strong>Delivery Duration:</strong> Standard delivery takes 2-5 working days depending on your location.</li>
+                        <li><strong>Tracking:</strong> A unique tracking link will be sent to your WhatsApp or email immediately upon dispatch.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <div class="policy-header">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <h2>Return & Exchange</h2>
+                </div>
+                <div class="policy-content">
+                    <p>Your satisfaction is our legacy. If you are not completely satisfied with your purchase, our return policy is simple and transparent.</p>
+                    <ul>
+                        <li><strong>7-Day Window:</strong> Returns or exchanges are accepted within 7 days of delivery.</li>
+                        <li><strong>Condition:</strong> Items must be unused, unworn, and in their original packaging with all tags intact.</li>
+                        <li><strong>Process:</strong> To initiate a return, contact our concierge on WhatsApp with your Order ID and reason for return.</li>
+                        <li><strong>Refunds:</strong> Once inspected, refunds are processed via Bank Transfer, JazzCash, or Easypaisa within 3 working days.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <div class="policy-header">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h2>Warranty Coverage</h2>
+                </div>
+                <div class="policy-content">
+                    <p>Every ZAYNAR watch is backed by our commitment to quality.</p>
+                    <ul>
+                        <li><strong>1-Year Movement Warranty:</strong> Covers any mechanical faults or manufacturing defects in the watch machine.</li>
+                        <li><strong>Exclusions:</strong> The warranty does not cover damage resulting from accidents, misuse, water damage (unless specified), or normal wear and tear of the strap, glass, or battery.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="text-center" style="padding: 50px 20px; background: var(--bg-panel); margin-top: 50px;">
+            <h3>Still have questions?</h3>
+            <a href="contact.html" class="btn secondary-btn" style="margin-top: 20px;">Contact Concierge</a>
+        </div>
+    </main>
+
+    <div id="cart-drawer">
+        <div class="cart-header"><h3>Shopping Bag</h3><button id="close-cart"><i class="fa-solid fa-xmark"></i></button></div>
+        <div id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total"><span>Total</span><span id="cart-total-price">$0.00</span></div>
+            <a href="checkout.html" class="btn primary-btn full-width">Checkout</a>
+        </div>
+    </div>
+    <div id="overlay"></div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div><div class="brand-logo">ZAYNAR</div><p>Timeless elegance for the modern era.</p></div>
+            <div class="footer-links"><h4>Shop</h4><a href="shop.html">Watches</a><a href="shop.html">Wallets</a></div>
+            <div class="footer-links"><h4>Support</h4><a href="contact.html">Contact</a><a href="faq.html">FAQ</a><a href="track-order.html">Track Order</a></div>
+            <div class="footer-links"><h4>Social</h4>
+                <a href="https://www.instagram.com/zaynar408/" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61583361166526" target="_blank">Facebook</a>
+                <a href="https://www.tiktok.com/@zaynar408?lang=en-GB" target="_blank">TikTok</a>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2025 ZAYNAR. All Rights Reserved.</div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>

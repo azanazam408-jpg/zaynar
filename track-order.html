@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product | ZAYNAR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadProduct()">
+    <header id="main-header">/* same header as shop.html */</header>
+
+    <main class="container" style="padding:100px 20px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;">
+        <img id="prod-img" style="border-radius:16px; width:100%;">
+        <div>
+            <h1 id="prod-name" style="font-size:3rem; margin-bottom:20px;"></h1>
+            <p class="price" id="prod-price" style="font-size:2.5rem; color:var(--accent-gold); margin-bottom:30px;"></p>
+            <p style="color:var(--text-secondary); line-height:1.8; margin-bottom:40px;">
+                Premium craftsmanship • Swiss-inspired movement • Sapphire crystal • Full grain Italian leather<br>
+                Includes luxury gift box & 1-year warranty
+            </p>
+            <button onclick="addToCart(getUrlParam('id')); alert('Added!');" style="width:100%; padding:20px; background:var(--accent-gold); color:black; border:none; border-radius:12px; font-size:1.4rem; font-weight:700;">
+                Add to Cart
+            </button>
+            <a href="checkout.html" style="display:block; text-align:center; margin-top:20px; color:var(--accent-gold); font-size:1.1rem;">Buy Now</a>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        function getUrlParam(name) {
+            return new URLSearchParams(window.location.search).get(name);
+        }
+        function loadProduct() {
+            const id = getUrlParam('id');
+            const p = products[id];
+            if (!p) return location.href = 'shop.html';
+
+            document.title = p.name + " | ZAYNAR";
+            document.getElementById('prod-name').textContent = p.name;
+            document.getElementById('prod-price').textContent = '$' + p.price + '.00';
+            document.getElementById('prod-img').src = p.img;
+        }
+    </script>
+</body>
+</html>

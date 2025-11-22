@@ -1,206 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Account - ZAYNAR</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account | ZAYNAR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo.jpg" />
+    <style>
+        .account-container {
+            position: relative; z-index: 2; background: var(--bg-panel); padding: 50px; width: 100%; max-width: 420px;
+            border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-card);
+        }
+        .form-control {
+            width: 100%; padding: 16px; background: var(--bg-body); border: 1px solid var(--border-color);
+            color: white; border-radius: 10px; margin-bottom: 20px; font-size: 1rem;
+        }
+        .form-control:focus { outline: none; border-color: var(--accent-gold); }
+        .btn-full { width: 100%; padding: 16px; background: var(--accent-gold); color: #000; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; font-size: 1.1rem; }
+        .btn-full:hover { background: var(--accent-hover); }
+        .toggle-text { text-align: center; margin-top: 25px; font-size: 0.95rem; }
+        .toggle-text a { color: var(--accent-gold); cursor: pointer; text-decoration: underline; }
+        #logout-btn { background: transparent; color: var(--text-secondary); font-size: 0.9rem; margin-top: 20px; }
+    </style>
+</head>
 <body>
-<header>
-  <nav class="navbar">
-      <a href="index.html">
-      <div class="logo">ZAYNAR</div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-      </ul>
-      
-      <div class="nav-icons">
-        <a href="account.html" aria-label="My Account"><i class="fa-regular fa-user"></i></a>
-        <a href="#" id="cart-btn" aria-label="Open Cart">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span id="cart-item-count">0</span>
-        </a>
-        <a href="#" id="hamburger-btn" aria-label="Open Menu"><i class="fa-solid fa-bars-staggered"></i></a>
-      </div>
-    </nav>
-    
-    <div id="mobile-nav" class="mobile-nav-menu">
-        <a href="index.html" class="mobile-link">Home</a>
-        <a href="shop.html" class="mobile-link">Shop</a>
-        <a href="about.html" class="mobile-link">About</a>
-        <a href="contact.html" class="mobile-link">Contact</a>
-        <a href="faq.html" class="mobile-link">FAQ</a>
-        <a href="account.html" class="mobile-link">My Account</a>
-    </div>
-</header>
-<main>
-  <section class="contact-container" style="max-width: 500px;" data-animate>
-    <div id="form-area">
-      <h1 id="form-title" style="font-size: 2.5em; text-align: center; color: var(--accent-color); margin-bottom: 2.5rem;">Account Sign In</h1>
-      <form id="account-form" class="contact-form">
-        <div class="form-group">
-          <label for="firstname">First Name:</label>
-          <input id="firstname" name="firstname" type="text" placeholder="First Name" required class="form-control">
+
+    <header id="main-header">
+        <div class="header-inner">
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Collection</a>
+                <a href="about.html" class="nav-link">Legacy</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <a href="index.html" class="brand-logo">ZAYNAR</a>
+            <div class="header-actions">
+                <button id="theme-btn" class="icon-link"><i class="fa-solid fa-sun"></i></button>
+                <a href="account.html" class="icon-link active"><i class="fa-regular fa-user"></i></a>
+                <button id="cart-trigger" class="icon-link"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count">0</span></button>
+                <button id="menu-trigger" class="icon-link mobile-only"><i class="fa-solid fa-bars"></i></button>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="lastname">Last Name:</label>
-          <input id="lastname" name="lastname" type="text" placeholder="Last Name" required class="form-control">
+    </header>
+
+    <div id="mobile-menu"><div class="mm-links"><a href="index.html">Home</a><a href="shop.html">Collection</a><a href="about.html">Legacy</a><a href="contact.html">Contact</a><a href="account.html">Account</a></div></div>
+
+    <main style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: url('img/a2.jpg') center/cover; position: relative;">
+        <div class="overlay"></div>
+        
+        <div class="account-container fade-up">
+            <!-- Logged Out: Show Login / Register -->
+            <div id="auth-forms">
+                <h2 style="text-align:center; margin-bottom:30px;" id="form-title">Member Access</h2>
+
+                <div id="login-form">
+                    <input type="email" id="login-email" class="form-control" placeholder="Email" required>
+                    <input type="password" id="login-pass" class="form-control" placeholder="Password" required>
+                    <button onclick="login()" class="btn-full">Sign In</button>
+                </div>
+
+                <div id="register-form" style="display:none;">
+                    <input type="text" id="reg-name" class="form-control" placeholder="Full Name" required>
+                    <input type="email" id="reg-email" class="form-control" placeholder="Email" required>
+                    <input type="password" id="reg-pass" class="form-control" placeholder="Password (6+ chars)" required>
+                    <input type="tel" id="reg-phone" class="form-control" placeholder="Phone (optional)">
+                    <button onclick="register()" class="btn-full">Create Account</button>
+                </div>
+
+                <p class="toggle-text">
+                    <span id="toggle-message">New here? <a onclick="toggleForm()">Create an account</a></span>
+                </p>
+            </div>
+
+            <!-- Logged In: Show Welcome -->
+            <div id="logged-in" style="display:none; text-align:center;">
+                <i class="fa-solid fa-user-check" style="font-size:4rem; color:var(--accent-gold); margin-bottom:20px;"></i>
+                <h2>Welcome back,<br><span id="user-name" style="color:var(--accent-gold);"></span>!</h2>
+                <p style="margin:20px 0; color:var(--text-secondary);">You are logged in successfully.</p>
+                <button onclick="logout()" id="logout-btn" class="btn-full" style="background:transparent; border:1px solid var(--accent-gold); color:var(--accent-gold);">
+                    Logout
+                </button>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="age">Age:</label>
-          <input id="age" name="age" type="number" placeholder="Your Age" min="10" max="100" required class="form-control">
+    </main>
+
+    <!-- Cart Drawer & Footer (same as before) -->
+    <div id="cart-drawer"><div class="drawer-header"><h3>Shopping Bag</h3><button id="close-drawer"><i class="fa-solid fa-xmark"></i></button></div><div id="cart-items" class="drawer-content"></div><div class="drawer-footer"><div style="display:flex; justify-content:space-between;"><span>Total</span><span id="cart-total">$0.00</span></div><a href="checkout.html" class="btn btn-primary" style="width:100%; margin-top:20px;">Checkout</a></div></div>
+    <div id="overlay"></div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div><div class="brand-logo">ZAYNAR</div><p>Timeless elegance.</p></div>
+            <div class="footer-links"><h4>Shop</h4><a href="shop.html">All</a><a href="track-order.html">Track</a></div>
+            <div class="footer-links"><h4>Support</h4><a href="contact.html">Contact</a><a href="faq.html">FAQ</a></div>
+            <div class="footer-links"><h4>Social</h4><a href="#">Instagram</a></div>
         </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input id="email" name="email" type="email" placeholder="your@email.com" required class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input id="password" name="password" type="password" placeholder="Enter password" required class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">Register / Login</button>
-      </form>
-      <p id="toggle-link-area" style="text-align: center; margin-top: 1.5rem; color: var(--secondary-text);">Already have an account? <a href="#" id="toggle-link" style="color: var(--accent-color);">Login</a></p>
-    </div>
-    
-    <div id="welcome-area" style="display: none; text-align: center;">
-      <div class="welcome">
-        <h1 style="font-size: 2.5em; color: var(--accent-color); margin-bottom: 1.5rem;">Welcome, <span id="user-name"></span>!</h1>
-        <p style="font-size: 1.1em; color: var(--primary-text); margin-bottom: 0.5rem;">Your age: <span id="user-age"></span></p>
-        <p style="font-size: 1.1em; color: var(--primary-text); margin-bottom: 2rem;">Your email: <span id="user-email"></span></p>
-        <button class="btn btn-primary" id="logout-btn" style="background-color: var(--border-color); border-color: var(--border-color);">Logout</button>
-      </div>
-    </div>
-  </section>
-</main>
+        <div class="footer-bottom">&copy; 2025 ZAYNAR.</div>
+    </footer>
 
-<div id="cart-overlay"></div>
-  <aside id="cart-sidebar">
-    <div class="cart-header">
-      <h3>Your Bag</h3>
-      <button id="close-cart-btn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <div id="cart-list-container">
-      </div>
-    <div class="cart-footer">
-      <div class="subtotal-container">
-        <strong>Subtotal:</strong>
-        <span id="subtotal">$0.00</span>
-      </div>
-      <button class="btn btn-primary checkout-btn">Go to Checkout</button>
-    </div>
-  </aside>
+    <script src="script.js"></script>
+    <script>
+        // === ACCOUNT SYSTEM ===
+        const currentUser = JSON.parse(localStorage.getItem('zaynarUser'));
 
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <h4>ZAYNAR</h4>
-        <p>Premium luxury products and fashion accessories. Minimalist elegance for the modern world.</p>
-      </div>
-      <div class="footer-column">
-        <h4>Shop</h4>
-        <a href="shop.html">All Products</a>
-        <a href="shop.html#watches">Watches</a>
-        <a href="shop.html#wallets">Wallets</a>
-      </div>
-      <div class="footer-column">
-        <h4>Support</h4>
-        <a href="contact.html">Contact Us</a>
-        <a href="faq.html">FAQ</a>
-        <a href="shipping-returns.html">Shipping & Returns</a>
-      </div>
-      <div class="footer-column">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61578607029967" target="blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/agdkwg4/" target="blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@zaynar408" target="blank" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      &copy; 2025 ZAYNAR. All Rights Reserved.
-    </div>
-  </footer>
+        if (currentUser) {
+            document.getElementById('auth-forms').style.display = 'none';
+            document.getElementById('logged-in').style.display = 'block';
+            document.getElementById('user-name').textContent = currentUser.name.split(' ')[0];
+        }
 
-<script src="script.js"></script>
-<script>
-  // Utility functions
-  function saveUser(user) {
-    localStorage.setItem("accountUser", JSON.stringify(user));
-  }
-  function getUser() {
-    const raw = localStorage.getItem("accountUser");
-    return raw ? JSON.parse(raw) : null;
-  }
-  function removeUser() {
-    localStorage.removeItem("accountUser");
-  }
+        function toggleForm() {
+            const login = document.getElementById('login-form');
+            const register = document.getElementById('register-form');
+            const title = document.getElementById('form-title');
+            const msg = document.getElementById('toggle-message');
 
-  // UI Elements
-  const formArea = document.getElementById('form-area');
-  const form = document.getElementById('account-form');
-  const welcomeArea = document.getElementById('welcome-area');
-  const userNameSpan = document.getElementById('user-name');
-  const userAgeSpan = document.getElementById('user-age');
-  const userEmailSpan = document.getElementById('user-email');
-  const logoutBtn = document.getElementById('logout-btn');
+            if (login.style.display === 'none') {
+                login.style.display = 'block';
+                register.style.display = 'none';
+                title.textContent = 'Member Access';
+                msg.innerHTML = 'New here? <a onclick="toggleForm()">Create an account</a>';
+            } else {
+                login.style.display = 'none';
+                register.style.display = 'block';
+                title.textContent = 'Create Account';
+                msg.innerHTML = 'Already have account? <a onclick="toggleForm()">Sign In</a>';
+            }
+        }
 
-  // Show user profile if logged in
-  function showWelcome(user) {
-    userNameSpan.textContent = user.firstname + " " + user.lastname;
-    userAgeSpan.textContent = user.age;
-    userEmailSpan.textContent = user.email;
-    formArea.style.display = 'none';
-    welcomeArea.style.display = 'block';
-  }
-  // Show form if not logged in
-  function showForm() {
-    form.reset();
-    formArea.style.display = 'block';
-    welcomeArea.style.display = 'none';
-  }
+        function register() {
+            const name = document.getElementById('reg-name').value.trim();
+            const email = document.getElementById('reg-email').value.trim();
+            const pass = document.getElementById('reg-pass').value;
+            const phone = document.getElementById('reg-phone').value.trim();
 
-  // Handle form submit
-  form.onsubmit = (e) => {
-    e.preventDefault();
-    const user = {
-      firstname: form.firstname.value,
-      lastname: form.lastname.value,
-      age: form.age.value,
-      email: form.email.value,
-      password: form.password.value
-    };
-    saveUser(user);
-    showWelcome(user);
-  };
+            if (!name || !email || pass.length < 6) {
+                alert('Please fill all fields correctly (Password 6+ chars)');
+                return;
+            }
 
-  logoutBtn.onclick = () => {
-    removeUser();
-    showForm();
-  };
+            const user = { name, email, phone: phone || 'Not provided', registeredAt: new Date().toLocaleDateString() };
+            localStorage.setItem('zaynarUser', JSON.stringify(user));
+            localStorage.setItem('zaynarPass', btoa(pass)); // simple encode
 
-  // On page load
-  document.addEventListener('DOMContentLoaded', () => {
-    const user = getUser();
-    if (user) {
-      showWelcome(user);
-    } else {
-      showForm();
-    }
-  });
-</script>
+            alert('Account created successfully!');
+            location.reload();
+        }
+
+        function login() {
+            const email = document.getElementById('login-email').value.trim();
+            const pass = document.getElementById('login-pass').value;
+
+            const savedUser = localStorage.getItem('zaynarUser');
+            const savedPass = localStorage.getItem('zaynarPass');
+
+            if (savedUser && savedPass && JSON.parse(savedUser).email === email && btoa(pass) === savedPass) {
+                alert('Welcome back!');
+                location.reload();
+            } else {
+                alert('Wrong email or password!');
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('zaynarUser');
+            localStorage.removeItem('zaynarPass');
+            alert('Logged out successfully');
+            location.reload();
+        }
+
+        // Optional: Show user name in header everywhere
+        document.addEventListener('DOMContentLoaded', () => {
+            if (currentUser) {
+                const userIcons = document.querySelectorAll('a[href="account.html"] i');
+                userIcons.forEach(icon => icon.classList.replace('fa-regular', 'fa-solid'));
+            }
+            updateCartUI();
+        });
+    </script>
 </body>
 </html>
